@@ -205,10 +205,10 @@ table {
 .tdContent {
     max-width: 200px;
     font-family: inherit;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     line-height: 1.3rem;
     text-align: center;
-    margin: auto;
+    margin: 25px auto;
     padding-right: 45px;
     padding-left: 45px;
 }

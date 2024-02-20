@@ -12,19 +12,9 @@ export default function Users() {
             .catch(err => console.log(err))
     }
 
-
-    const paperStyle = {
-        fontFamily: "sans-serif",
-        padding: "50px 20px",
-        width: "95%",
-        margin: "20px auto",
-        borderRadius: 20,
-        backgroundColor: "#e9dbd3"
-    }
-
     return (
         <Container>
-            <Paper elevation={3} style={paperStyle}>
+            <Paper elevation={3} className="paperStyle">
                 <Box>
                     <div>
                         <button onClick={onClick}>List
@@ -34,7 +24,7 @@ export default function Users() {
                                 {
                                     users.map((list, index) => (
 
-                                        <table>
+                                        <table style={{margin:"auto 25px"}}>
                                             <tbody>
                                             <tr>
                                                 <td>
