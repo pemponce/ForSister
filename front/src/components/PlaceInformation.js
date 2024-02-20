@@ -18,7 +18,7 @@ export default function PlaceInformation() {
 
                     <div className="mapSize">
                         {/*55.764343, 49.130068*/}
-                        <iframe className="mapSize" src="https://yandex.ru/map-widget/v1/-/CDBT4B17"></iframe>
+                        <iframe className="mapSize" src="https://yandex.ru/map-widget/v1/-/CDBT4B17" frameBorder="0"></iframe>
                     </div>
                 </Box>
             </Paper>
