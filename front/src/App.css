@@ -40,13 +40,29 @@
 .page {
     width: 100%;
     height: auto;
-    min-height: 770px;
+    min-height: 770px; /* Можете изменить на другое значение в зависимости от ваших потребностей */
     position: absolute;
     scroll-behavior: auto;
 
     background: rgb(213, 213, 213);
     background: linear-gradient(180deg, rgba(213, 213, 213, 1) 0%, rgba(204, 185, 185, 1) 100%);
     background-size: auto;
+}
+
+.paperStyle {
+    padding: 50px 20px !important;
+    width: 95% !important;
+    margin: 30px auto !important;
+    border-radius: 20px !important;
+    background-color: #e9dbd3 !important;
+}
+
+.paperStyleForm {
+    padding: 50px 20px !important;
+    width: 95% !important;
+    margin: 30px auto !important;
+    border-radius: 20px !important;
+    background-color: #fff !important;
 }
 
 h1 {
@@ -156,16 +172,22 @@ body {
     height: 100%;
     width: 75%;
     margin: auto;
+    display: flex;
+    flex-wrap: wrap; /* Обернуть элементы на новую строку при нехватке места */
+    justify-content: space-around; /* Распределить элементы равномерно вокруг контейнера */
+    align-items: center;
 }
 
 .table {
-    width: 70%;
+    width: auto;
     height: 50%;
     margin: auto;
 }
 
 table {
+    width: auto;
     box-sizing: inherit;
+    margin: auto;
 }
 
 .table th {
@@ -183,19 +205,61 @@ table {
 .tdContent {
     max-width: 200px;
     font-family: inherit;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     line-height: 1.3rem;
     text-align: center;
-    margin: 25px auto;
+    margin: auto;
     padding-right: 45px;
     padding-left: 45px;
 }
 
+.mapSize {
+    width: 600px;
+    height: 500px;
+    margin: auto;
+}
 @keyframes App-logo-spin {
     from {
         transform: rotate(0deg);
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 700px) {
+
+    .mapSize {
+        width: 100%;
+        height: 100%;
+    }
+
+    .containerStyle {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-bottom: 20px !important;
+    }
+
+    .tdContent {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .paperStyle {
+        padding: 25px 0px !important;
+        width: 95% !important;
+        margin: 10px auto !important;
+        border-radius: 20px !important;
+        background-color: #e9dbd3 !important;
+    }
+
+    .paperStyleForm {
+        padding: 25px 0 !important;
+        width: 95% !important;
+        margin: 10px auto !important;
+        border-radius: 20px !important;
+        background-color: #fff !important;
     }
 }

@@ -6,7 +6,6 @@ import {useState} from "react";
 
 export default function Person() {
 
-    const paperStyle = {padding: "50px 20px", width: "95%", margin: "20px auto", borderRadius: 20}
     const formStyle = {padding: "0px 0px 10px 0px"}
     const [name, setName] = useState('')
     const [anotherName, setAnotherName] = useState('')
@@ -28,8 +27,8 @@ export default function Person() {
         })
     }
 
-    return (<Container>
-        <Paper elevation={3} style={paperStyle}>
+    return (<Container className="containerStyle">
+        <Paper elevation={3} className="paperStyleForm" style={{backgroundColor:"#fff !important"}}>
             <Box>
                 <TextField id="outlined-basic" label="Имя и Фамилия" variant="outlined" style={formStyle} fullWidth
                            value={name}

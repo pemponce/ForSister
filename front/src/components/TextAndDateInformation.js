@@ -22,18 +22,9 @@ export default function TextAndDateInformation() {
         ]
     })
 
-    const paperStyle = {
-        padding: "50px 20px",
-        width: "95%",
-        margin: "20px auto",
-        borderRadius: 20,
-        backgroundColor: "#e9dbd3"
-    }
-
-
     return (
-        <Container>
-            <Paper elevation={3} style={paperStyle}>
+        <Container className="containerStyle">
+            <Paper elevation={3} className="paperStyle">
                 <Box>
                     <div className="textContent">
                         <h1>Дорогие гости!</h1>

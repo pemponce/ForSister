@@ -1,25 +1,16 @@
 import * as React from "react";
-import {Container, Paper} from "@mui/material";
+import { Container, Paper } from "@mui/material";
 import Box from "@mui/material/Box";
 
 export default function DayPlan() {
 
-    const paperStyle = {
-        padding: "50px 20px",
-        width: "95%",
-        margin: "20px auto",
-        borderRadius: 20,
-        backgroundColor: "#e9dbd3"
-    }
-
     const H4Style = {
         lineHeight: "1.5rem"
-    }
-
+    };
 
     return (
-        <Container>
-            <Paper elevation={3} style={paperStyle}>
+        <Container className="containerStyle">
+            <Paper elevation={3} className="paperStyle">
                 <Box>
                     <h1>План Дня</h1>
 
@@ -31,61 +22,60 @@ export default function DayPlan() {
                                     <div className="tdContent">16:00</div>
                                 </td>
                                 <td>
-                                    <div className="glassImage"/>
+                                    <div className="glassImage" />
                                 </td>
                                 <td>
                                     <div className="tdContent">
                                         <h4 style={H4Style}>Сбор гостей, фуршет</h4>
-                                        <tr>Собираясь на торжество возьмите с собой свои улыбки и хорошее настроение</tr>
+                                        <p>Собираясь на торжество возьмите с собой свои улыбки и хорошее настроение</p>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <div className="tdContent"> 16:30</div>
+                                    <div className="tdContent">16:30</div>
                                 </td>
                                 <td>
-                                    <div className="weddingCeremonyImage"/>
+                                    <div className="weddingCeremonyImage" />
                                 </td>
                                 <td>
                                     <div className="tdContent">
                                         <h4 style={H4Style}>Церемония бракосочетания</h4>
-                                        <tr>Приготовьте платочки для трогательного момента</tr>
+                                        <p>Приготовьте платочки для трогательного момента</p>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <div className="tdContent"> 17:00</div>
+                                    <div className="tdContent">17:00</div>
                                 </td>
                                 <td>
-                                    <div className="FestiveBanquetImage"/>
+                                    <div className="FestiveBanquetImage" />
                                 </td>
                                 <td>
                                     <div className="tdContent">
                                         <h4 style={H4Style}>Праздничный банкет</h4>
-                                        <tr>Время танцев, вкусной еды, теплых пожеланий и развлечений</tr>
+                                        <p>Время танцев, вкусной еды, теплых пожеланий и развлечений</p>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <div className="tdContent"> 00:00</div>
+                                    <div className="tdContent">00:00</div>
                                 </td>
                                 <td>
-                                    <div className="EndOfTheEveningImage"/>
+                                    <div className="EndOfTheEveningImage" />
                                 </td>
                                 <td>
                                     <div className="tdContent">
                                         <h4 style={H4Style}>Конец Банкета</h4>
-                                        <tr>К сожалению, даже такой волшебный вечер может закончиться</tr>
+                                        <p>К сожалению, даже такой волшебный вечер может закончиться</p>
                                     </div>
                                 </td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
-
                 </Box>
             </Paper>
         </Container>
