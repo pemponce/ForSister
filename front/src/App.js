@@ -1,12 +1,13 @@
 import './App.css';
 import React from "react";
-import SomeInformation from "./components/SomeInformation.js";
+import TopPagePhotos from "./components/TopPagePhotos.js";
 import DayPlan from "./components/DayPlan.js";
 import Person from "./components/Person.js";
 import TextAndDateInformation from "./components/TextAndDateInformation.js";
 import {Route, BrowserRouter as Router, Routes} from "react-router-dom";
 import Users from "./components/Users";
 import PlaceInformation from "./components/PlaceInformation";
+import Recommendations from "./components/Recommendations";
 
 function MainPage() {
 
@@ -25,10 +26,11 @@ function MainPage() {
         <div className="page">
 
             <div>
-                <SomeInformation/>
+                <TopPagePhotos/>
                 <TextAndDateInformation/>
                 <DayPlan/>
                 <PlaceInformation/>
+                <Recommendations/>
                 <Person/>
             </div>
 

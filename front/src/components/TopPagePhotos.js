@@ -2,7 +2,7 @@ import * as React from "react";
 import {Container, Paper} from "@mui/material";
 import Box from "@mui/material/Box";
 
-export default function SomeInformation() {
+export default function TopPagePhotos() {
 
 
     return (

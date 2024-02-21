@@ -49,6 +49,13 @@
     background-size: auto;
 }
 
+.circleColorPalette {
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    background-color: white;
+}
+
 .paperStyle {
     padding: 50px 20px !important;
     width: 95% !important;
@@ -115,11 +122,10 @@ h1 {
 .ImgK {
     margin: auto;
     width: 95%;
-    height: 900px;
+    height: 800px;
     background-image: url('../public/img/Karina_I_Vlad.jpg');
     background-position: 50% 30%;
-    background-repeat: no-repeat; /* Отключить повторение фона */
-
+    background-repeat: no-repeat;
 }
 
 .glassImage {
@@ -178,12 +184,6 @@ body {
     align-items: center;
 }
 
-.table {
-    width: auto;
-    height: 50%;
-    margin: auto;
-}
-
 table {
     width: auto;
     box-sizing: inherit;
@@ -198,6 +198,12 @@ table {
 .table td {
     padding: 8px;
     border-bottom: 1px solid #eee;
+    vertical-align: center;
+    margin: auto;
+}
+
+.tablePalette td {
+    padding: 8px;
     vertical-align: center;
     margin: auto;
 }
@@ -233,7 +239,7 @@ table {
 
     .mapSize {
         width: 100%;
-        height: 100%;
+        height: 250px;
         margin: auto;
 
         border-radius: 15px;
@@ -246,6 +252,14 @@ table {
         padding-right: 0 !important;
         padding-bottom: 20px !important;
     }
+
+    .circleColorPalette {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-color: white;
+    }
+
 
     .tdContent {
         padding-right: 5px;
@@ -266,5 +280,63 @@ table {
         margin: 10px auto !important;
         border-radius: 20px !important;
         background-color: #fff !important;
+    }
+}
+
+@media (max-width: 378px) {
+
+    .mapSize {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+
+        border-radius: 15px;
+    }
+
+    .containerStyle {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-bottom: 20px !important;
+    }
+
+    .circleColorPalette {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-color: white;
+    }
+
+    .tdContent {
+        padding-right: 2px;
+        padding-left: 2px;
+    }
+
+    .paperStyle {
+        padding: 25px 0px !important;
+        width: 95% !important;
+        margin: 10px auto !important;
+        border-radius: 20px !important;
+        background-color: #e9dbd3 !important;
+    }
+
+    .paperStyleForm {
+        padding: 25px 0 !important;
+        width: 95% !important;
+        margin: 10px auto !important;
+        border-radius: 20px !important;
+        background-color: #fff !important;
+    }
+
+    h1 {
+        width: auto;
+    }
+
+    .circleColorPalette {
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        background-color: white;
     }
 }
