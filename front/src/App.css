@@ -29,9 +29,9 @@
 }
 
 .VladKarina {
-    font-family: "Bad Script", cursive;
+    font-family: "Cormorant Garamond", serif;
     font-weight: 400;
-    font-style: normal;
+    font-style: italic;
     font-size: 3rem;
     color: white;
     text-align: center;
@@ -73,7 +73,7 @@
 }
 
 h1 {
-    font-family: "Bad Script", cursive;
+    font-family: "Cormorant Garamond", serif;
     font-weight: 400;
     font-style: normal;
     font-size: 4rem;
@@ -82,7 +82,7 @@ h1 {
 }
 
 .textContent {
-    font-family: "Bad Script", cursive;
+    font-family: "Cormorant Garamond", serif;
     font-weight: 150;
     font-style: normal;
     font-size: 1.4rem;
@@ -110,7 +110,7 @@ h1 {
 }
 
 .css-cyfsxc-MuiPickersCalendarHeader-labelContainer {
-    font-family: "Bad Script", cursive !important;
+    font-family: "Cormorant Garamond", serif !important;
     font-weight: 250 !important;
     line-height: 1.2 !important;
     font-style: normal !important;
@@ -133,6 +133,10 @@ h1 {
     height: 100px;
     margin: auto;
     background-image: url('https://optim.tildacdn.com/tild3263-6338-4662-a336-656630633834/-/resize/122x/-/format/webp/photo.png');
+}
+
+.css-1u23akw-MuiButtonBase-root-MuiPickersDay-root {
+    font-size: 1.05rem !important;
 }
 
 .weddingCeremonyImage {
@@ -165,12 +169,12 @@ h1 {
     font-size: 14px;
     font-weight: 400;
     color: rgb(0, 0, 0);
-    font-family: "EB Garamond";
+    font-family: "Cormorant Garamond", serif;
 }
 
 body {
     height: 100%;
-    font-family: "Bad Script", cursive;
+    font-family: "Cormorant Garamond", serif;
     background: linear-gradient(170deg, white, rgb(188, 205, 212)) fixed;
 }
 
@@ -179,7 +183,7 @@ body {
     width: 75%;
     margin: auto;
     display: flex;
-    flex-wrap: wrap; /* Обернуть элементы на новую строку при нехватке места */
+    flex-wrap: wrap;
     justify-content: space-around; /* Распределить элементы равномерно вокруг контейнера */
     align-items: center;
 }
@@ -211,7 +215,7 @@ table {
 .tdContent {
     max-width: 200px;
     font-family: inherit;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     line-height: 1.3rem;
     text-align: center;
     margin: 25px auto;
