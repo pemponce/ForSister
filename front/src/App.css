@@ -1,0 +1,366 @@
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.App-header {
+    background-color: #080b11;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+.VladKarina {
+    font-family: "Cormorant Garamond", serif;
+    padding-top: 20px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.8rem;
+    color: white;
+    text-align: center;
+}
+
+.page {
+    width: 100%;
+    height: auto;
+    min-height: 770px; /* Можете изменить на другое значение в зависимости от ваших потребностей */
+    position: absolute;
+    scroll-behavior: auto;
+
+    background: rgb(213, 213, 213);
+    background: linear-gradient(180deg, rgba(213, 213, 213, 1) 0%, rgba(204, 185, 185, 1) 100%);
+    background-size: auto;
+}
+
+.circleColorPalette {
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    background-color: white;
+}
+
+.paperStyle {
+    padding: 50px 20px !important;
+    width: 95% !important;
+    margin: 30px auto !important;
+    border-radius: 20px !important;
+    background-color: #e9dbd3 !important;
+}
+
+.paperStyleForm {
+    padding: 50px 20px !important;
+    width: 95% !important;
+    margin: 30px auto !important;
+    border-radius: 20px !important;
+    background-color: #fff !important;
+}
+
+h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.5rem;
+    color: #6d4e1e;
+    text-align: center;
+}
+
+.textContent {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 150;
+    font-style: normal;
+    font-size: 1.4rem;
+    color: #6d4e1e;
+    text-align: center;
+}
+
+.css-1u23akw-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
+    background-color: #ad8d5f !important;
+
+}
+
+.css-3su884-MuiPaper-root {
+    padding: 50px 5px !important;
+}
+
+.css-0 {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.css-9reuh9-MuiPickersArrowSwitcher-root {
+    opacity: 0 !important;
+    display: none !important;
+}
+
+.css-cyfsxc-MuiPickersCalendarHeader-labelContainer {
+    font-family: "Cormorant Garamond", serif !important;
+    font-weight: 250 !important;
+    line-height: 1.2 !important;
+    font-style: normal !important;
+    font-size: 1.9rem !important;
+    margin: auto !important;
+    cursor: default !important;
+}
+
+.ImgK {
+    margin: auto;
+    width: 95%;
+    height: 800px;
+    background-image: url('../public/img/kv2.jpeg');
+    background-position: 50% 30%;
+    background-repeat: no-repeat;
+}
+
+.glassImage {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    background-image: url('https://optim.tildacdn.com/tild3263-6338-4662-a336-656630633834/-/resize/122x/-/format/webp/photo.png');
+}
+
+.css-1u23akw-MuiButtonBase-root-MuiPickersDay-root {
+    font-size: 1.05rem !important;
+}
+
+.weddingCeremonyImage {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    background-image: url('https://optim.tildacdn.com/tild6463-6132-4337-b432-343636646333/-/resize/122x/-/format/webp/photo.png');
+}
+
+.FestiveBanquetImage {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    background-image: url('https://optim.tildacdn.com/tild6563-3933-4865-b261-636338666231/-/resize/122x/-/format/webp/photo.png');
+}
+
+.EndOfTheEveningImage {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    background-image: url('https://optim.tildacdn.com/tild6334-6533-4432-a331-376232633336/-/resize/122x/-/format/webp/photo.png');
+}
+
+.custom-checkbox .MuiSvgIcon-root {
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+}
+
+.custom-checkbox .MuiFormControlLabel-label {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+    font-family: "Cormorant Garamond", serif;
+}
+
+body {
+    height: 100%;
+    font-family: "Cormorant Garamond", serif;
+    background: linear-gradient(170deg, white, rgb(188, 205, 212)) fixed;
+}
+
+.container {
+    height: 100%;
+    width: 75%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Распределить элементы равномерно вокруг контейнера */
+    align-items: center;
+}
+
+table {
+    width: auto;
+    box-sizing: inherit;
+    margin: auto;
+}
+
+.table th {
+    padding: 8px;
+    background-color: #eee;
+}
+
+.table td {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    vertical-align: center;
+    margin: auto;
+}
+
+.tablePalette td {
+    padding: 8px;
+    vertical-align: center;
+    margin: auto;
+}
+
+.tdContent {
+    max-width: 200px;
+    font-family: inherit;
+    font-size: 1.4rem;
+    line-height: 1.3rem;
+    text-align: center;
+    margin: 25px auto;
+    padding-right: 45px;
+    padding-left: 45px;
+}
+
+.mapSize {
+    width: 600px;
+    height: 500px;
+
+    margin: auto;
+    border-radius: 15px;
+}
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 700px) {
+
+    .VladKarina {
+        font-size: 3.1rem;
+    }
+
+    .mapSize {
+        width: 100%;
+        height: 250px;
+        margin: auto;
+
+        border-radius: 15px;
+    }
+
+    .containerStyle {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-bottom: 20px !important;
+    }
+
+    .circleColorPalette {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-color: white;
+    }
+
+
+    .tdContent {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .paperStyle {
+        padding: 25px 0 !important;
+        width: 95% !important;
+        margin: 10px auto !important;
+        border-radius: 20px !important;
+        background-color: #e9dbd3 !important;
+    }
+
+    .paperStyleForm {
+        padding: 25px 0 !important;
+        width: 95% !important;
+        margin: 10px auto !important;
+        border-radius: 20px !important;
+        background-color: #fff !important;
+    }
+}
+
+@media (max-width: 376px) {
+
+    .ImgK {
+        background-position: 60% 30%;
+    }
+
+    .mapSize {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+
+        border-radius: 15px;
+    }
+
+    .containerStyle {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-bottom: 20px !important;
+    }
+
+    .circleColorPalette {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-color: white;
+    }
+
+    .css-1q04gal-MuiDateCalendar-root{
+        width: 280px !important;
+    }
+
+    table td {
+        padding-right: 1px !important;
+        padding-left: 1px !important;
+    }
+
+    .tdContent {
+        font-size: 1.2rem;
+        padding-right: 2px;
+        padding-left: 2px;
+    }
+
+    .paperStyle {
+        padding: 25px 0 !important;
+        width: 95% !important;
+        margin: 10px auto !important;
+        border-radius: 20px !important;
+        background-color: #e9dbd3 !important;
+    }
+
+    .paperStyleForm {
+        padding: 25px 0 !important;
+        width: 95% !important;
+        margin: 10px auto !important;
+        border-radius: 20px !important;
+        background-color: #fff !important;
+    }
+
+    h1 {
+        width: auto;
+    }
+
+    .circleColorPalette {
+        width: 45px;
+        height: 45px;
+        margin: auto;
+        border-radius: 100%;
+        background-color: white;
+    }
+}
