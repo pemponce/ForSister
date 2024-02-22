@@ -85,6 +85,7 @@
 
 .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
     border-color: unset !important;
+    border-width: 1px !important;
 
 }
 .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {

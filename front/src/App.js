@@ -8,6 +8,7 @@ import {Route, BrowserRouter as Router, Routes} from "react-router-dom";
 import Users from "./components/Users";
 import PlaceInformation from "./components/PlaceInformation";
 import Recommendations from "./components/Recommendations";
+import Contacts from "./components/Contacts";
 
 function MainPage() {
 
@@ -37,6 +38,7 @@ function MainPage() {
                 <PlaceInformation/>
                 <Recommendations/>
                 <Person/>
+                <Contacts/>
             </div>
 
         </div>
