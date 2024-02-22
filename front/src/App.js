@@ -9,6 +9,7 @@ import Users from "./components/Users";
 import PlaceInformation from "./components/PlaceInformation";
 import Recommendations from "./components/Recommendations";
 import Contacts from "./components/Contacts";
+import WeddingTimer from "./components/WeddingTimer";
 
 function MainPage() {
 
@@ -39,6 +40,7 @@ function MainPage() {
                 <Recommendations/>
                 <Person/>
                 <Contacts/>
+                <WeddingTimer/>
             </div>
 
         </div>

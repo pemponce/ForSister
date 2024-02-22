@@ -278,6 +278,17 @@ table {
     border-radius: 15px;
 }
 
+.timerSize {
+    width: 400px;
+    margin: auto;
+
+    align-content: center;
+}
+
+.timerComponentsSize {
+    padding: 0 25px;
+}
+
 @keyframes App-logo-spin {
     from {
         transform: rotate(0deg);
@@ -299,6 +310,17 @@ table {
         margin: auto;
 
         border-radius: 15px;
+    }
+
+    .timerSize {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .timerComponentsSize {
+        padding: 0 20px;
     }
 
     .containerStyle {
@@ -354,6 +376,19 @@ table {
         margin: auto;
 
         border-radius: 15px;
+    }
+
+    .timerSize {
+        width: 250px;
+        margin: auto;
+
+        font-size: 1.2rem;
+        padding-right: 2px;
+        padding-left: 2px;
+    }
+
+    .timerComponentsSize {
+        padding: 0 5px;
     }
 
     .containerStyle {
