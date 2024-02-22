@@ -59,7 +59,7 @@ export default function Person() {
                                       onChange={(e) => setGuestStatus(e.target.value)}/>
                 </RadioGroup>
 
-                <div className="container">
+                <div className="container" style={{marginTop:"10px"}}>
                     <Button variant="contained" onClick={handleClick}>отправить</Button>
                 </div>
             </Box>

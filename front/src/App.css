@@ -83,6 +83,41 @@
     border-radius: 50px !important;
 }
 
+.css-md26zr-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: unset !important;
+
+}
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+    font-size: 1.2rem !important;
+    font-family: "Cormorant Garamond", serif !important;
+    color: #6d4e1e !important;
+    background: unset !important;
+    height: 2rem !important;
+    line-height: 1.5rem !important;
+}
+
+.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+    font-family: "Cormorant Garamond", serif !important;
+    font-weight: 650 !important;
+    font-size: 1.15rem !important;
+    color: #6d4e1e !important;
+}
+
+.css-ahj2mt-MuiTypography-root {
+    font-family: "Cormorant Garamond", serif !important;
+    font-weight: 650 !important;
+    font-size: 1.15rem !important;
+    color: #6d4e1e !important;
+}
+
+.css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
+    color: rgb(112, 86, 66) !important;
+    border-color: rgb(112, 86, 66) !important;
+}
+.css-vqmohf-MuiButtonBase-root-MuiRadio-root {
+    -webkit-animation: none !important;
+}
+
 h1 {
     font-family: "Cormorant Garamond", serif;
     font-weight: 400;
