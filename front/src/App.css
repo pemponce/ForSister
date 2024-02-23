@@ -270,6 +270,10 @@ table {
     padding-left: 45px;
 }
 
+.divC {
+    font-size: 1.3rem;
+}
+
 .mapSize {
     width: 600px;
     height: 500px;
@@ -342,6 +346,10 @@ table {
     .tdContent {
         padding-right: 5px;
         padding-left: 5px;
+    }
+
+    .divC {
+        font-size: 0.7rem;
     }
 
     .paperStyle {
@@ -419,6 +427,10 @@ table {
         font-size: 1.2rem;
         padding-right: 2px;
         padding-left: 2px;
+    }
+
+    .divC {
+        font-size: 0.65rem;
     }
 
     .paperStyle {

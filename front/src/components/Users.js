@@ -5,14 +5,8 @@ import Box from "@mui/material/Box";
 export default function Users() {
     const [users, setUsers] = React.useState([])
 
-    const cont = {
-        width: "100%",
-        maxWidth: "800px",
-        padding: "15px",
-        margin: "20px auto",
-    }
-
     const trr = {
+        margin: "auto",
         borderBottom: "1px solid #eee",
         verticalAlign: "top",
         padding: "8px",
@@ -26,8 +20,10 @@ export default function Users() {
 
     const tdStyleId = {
         ...trr,
-        width: "5%" // Задаем фиксированную ширину каждому полю
+        width: "5%"
     }
+
+
 
     const onClick = (e) => {
         fetch("http://localhost:8080/person/getAll")
@@ -38,19 +34,28 @@ export default function Users() {
 
     return (
         <Container>
-            <Paper elevation={3} className="paperStyle" style={{fontFamily: "sans-serif", height: "100% !important", minHeight:"900px"}}>
+            <Paper elevation={3} className="paperStyle"
+                   style={{fontFamily: "sans-serif", height: "100% !important", minHeight: "900px"}}>
                 <Box>
                     <button onClick={onClick}>List</button>
-                    <div style={cont}>
-                        <ul>
+                    <div className="container" style={{margin:0}}>
+                        <ul style={{width:"100%"}}>
                             {users.map((list, index) => (
-                                <table style={{margin: "auto", width: "100%"}}>
+                                <table className="table" style={{width:"100%"}}>
                                     <tbody>
                                     <tr>
-                                        <td style={tdStyleId} width="20px">{list.id}</td>
-                                        <td style={tdStyle}>{list.name}</td>
-                                        <td style={tdStyle}>{list.anotherName}</td>
-                                        <td style={tdStyle}>{list.guestStatus}</td>
+                                        <td style={tdStyleId} width="20px">
+                                            <div className="divC">{list.id}</div>
+                                        </td>
+                                        <td style={tdStyle}>
+                                            <div className="divC">{list.name}</div>
+                                        </td>
+                                        <td style={tdStyle}>
+                                            <div className="divC">{list.anotherName}</div>
+                                        </td>
+                                        <td style={tdStyle}>
+                                            <div className="divC">{list.guestStatus}</div>
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>
