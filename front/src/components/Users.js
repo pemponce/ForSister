@@ -15,7 +15,7 @@ export default function Users() {
 
     const tdStyle = {
         ...trr,
-        width: "25%" // Задаем фиксированную ширину каждому полю
+        width: "25%"
     }
 
     const tdStyleId = {
