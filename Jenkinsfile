@@ -6,7 +6,7 @@ pipeline {
 		stage("build") {
 			steps {
 				echo 'building the app.'
-				sh 'cd wedd && mvn clean install'
+				sh 'cd wedd && gradle clean build'
 				sh 'cd ../front && npm install && npm run build'
 			}
 		}
