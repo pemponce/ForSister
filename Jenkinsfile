@@ -2,7 +2,7 @@ pipeline {
 	
 	agent any
 	tools {
-		gradle "GRADLE_HOME"
+		gradle 'GRADLE_HOME'
 	}
 	stages {
 		stage("build") {
