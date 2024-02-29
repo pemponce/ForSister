@@ -1,28 +1,21 @@
 pipeline {
 	
 	agent any
-
+	tools {
+		gradle 'GRADLE_HOME'
+	}
 	stages {
 		stage("build") {
-			when {
-				expression {
-					BRANCH_NAME == 'main' || BRANCH_NAME == 'develop'
-				}
-			}
 			steps {
 				echo 'building the app.'
-			}
-		}
-
-		stage("test") {
-			steps {
-				echo 'testing the app..'
+				sh 'cd wedd && gradle clean build'
+				sh 'cd ../front && npm install && npm run build'
 			}
 		}
 
 		stage("deploy") {
 			steps {
-				echo 'deploying the app...'
+				sh 'docker-compose up -d'
 			}
 		}
 	}
