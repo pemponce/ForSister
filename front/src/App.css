@@ -70,7 +70,53 @@
     width: 95% !important;
     margin: 30px auto !important;
     border-radius: 20px !important;
-    background-color: #fff !important;
+    background-color: #e9dbd3 !important;
+}
+
+.css-sghohy-MuiButtonBase-root-MuiButton-root {
+    font-family: "Cormorant Garamond", serif !important;
+    font-size: 1rem !important;
+    font-weight: 750 !important;
+    padding: 0.75rem !important;
+    width: 25% !important;
+    background-color: #8d7160 !important;
+    border-radius: 50px !important;
+}
+
+.css-md26zr-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: unset !important;
+    border-width: 1px !important;
+
+}
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+    font-size: 1.2rem !important;
+    font-family: "Cormorant Garamond", serif !important;
+    color: #6d4e1e !important;
+    background: unset !important;
+    height: 2rem !important;
+    line-height: 1.5rem !important;
+}
+
+.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+    font-family: "Cormorant Garamond", serif !important;
+    font-weight: 650 !important;
+    font-size: 1.15rem !important;
+    color: #6d4e1e !important;
+}
+
+.css-ahj2mt-MuiTypography-root {
+    font-family: "Cormorant Garamond", serif !important;
+    font-weight: 650 !important;
+    font-size: 1.15rem !important;
+    color: #6d4e1e !important;
+}
+
+.css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
+    color: rgb(112, 86, 66) !important;
+    border-color: rgb(112, 86, 66) !important;
+}
+.css-vqmohf-MuiButtonBase-root-MuiRadio-root {
+    -webkit-animation: none !important;
 }
 
 h1 {
@@ -224,6 +270,10 @@ table {
     padding-left: 45px;
 }
 
+.divC {
+    font-size: 1.3rem;
+}
+
 .mapSize {
     width: 600px;
     height: 500px;
@@ -231,6 +281,18 @@ table {
     margin: auto;
     border-radius: 15px;
 }
+
+.timerSize {
+    width: 400px;
+    margin: auto;
+
+    align-content: center;
+}
+
+.timerComponentsSize {
+    padding: 0 25px;
+}
+
 @keyframes App-logo-spin {
     from {
         transform: rotate(0deg);
@@ -254,6 +316,17 @@ table {
         border-radius: 15px;
     }
 
+    .timerSize {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .timerComponentsSize {
+        padding: 0 20px;
+    }
+
     .containerStyle {
         margin-right: 0 !important;
         margin-left: 0 !important;
@@ -275,6 +348,10 @@ table {
         padding-left: 5px;
     }
 
+    .divC {
+        font-size: 0.7rem;
+    }
+
     .paperStyle {
         padding: 25px 0 !important;
         width: 95% !important;
@@ -285,10 +362,13 @@ table {
 
     .paperStyleForm {
         padding: 25px 0 !important;
-        width: 95% !important;
         margin: 10px auto !important;
-        border-radius: 20px !important;
-        background-color: #fff !important;
+        background-color: #e9dbd3 !important;
+    }
+
+    .css-sghohy-MuiButtonBase-root-MuiButton-root {
+        width: 150px !important;
+        font-size: 0.75rem !important;
     }
 }
 
@@ -306,6 +386,19 @@ table {
         border-radius: 15px;
     }
 
+    .timerSize {
+        width: 250px;
+        margin: auto;
+
+        font-size: 1.2rem;
+        padding-right: 2px;
+        padding-left: 2px;
+    }
+
+    .timerComponentsSize {
+        padding: 0 5px;
+    }
+
     .containerStyle {
         margin-right: 0 !important;
         margin-left: 0 !important;
@@ -321,7 +414,7 @@ table {
         background-color: white;
     }
 
-    .css-1q04gal-MuiDateCalendar-root{
+    .css-1q04gal-MuiDateCalendar-root {
         width: 280px !important;
     }
 
@@ -336,6 +429,10 @@ table {
         padding-left: 2px;
     }
 
+    .divC {
+        font-size: 0.65rem;
+    }
+
     .paperStyle {
         padding: 25px 0 !important;
         width: 95% !important;
@@ -345,11 +442,8 @@ table {
     }
 
     .paperStyleForm {
-        padding: 25px 0 !important;
-        width: 95% !important;
         margin: 10px auto !important;
-        border-radius: 20px !important;
-        background-color: #fff !important;
+        background-color: #e9dbd3 !important;
     }
 
     h1 {

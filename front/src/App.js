@@ -8,6 +8,8 @@ import {Route, BrowserRouter as Router, Routes} from "react-router-dom";
 import Users from "./components/Users";
 import PlaceInformation from "./components/PlaceInformation";
 import Recommendations from "./components/Recommendations";
+import Contacts from "./components/Contacts";
+import WeddingTimer from "./components/WeddingTimer";
 
 function MainPage() {
 
@@ -37,6 +39,8 @@ function MainPage() {
                 <PlaceInformation/>
                 <Recommendations/>
                 <Person/>
+                <Contacts/>
+                <WeddingTimer/>
             </div>
 
         </div>
