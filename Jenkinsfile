@@ -3,25 +3,17 @@ pipeline {
 	agent any
 
 	stages {
-		
 		stage("build") {
-			
 			steps {
 				echo 'building the app.'
-			}
-		}
-
-		stage("test") {
-			
-			steps {
-				echo 'testing the app..'
+				sh 'cd wedd && mvn clean install && mvn install'
+				sh 'cd ../front && npm install && npm run build'
 			}
 		}
 
 		stage("deploy") {
-			
 			steps {
-				echo 'deploying the app...'
+				sh 'docker-compose up -d'
 			}
 		}
 	}
