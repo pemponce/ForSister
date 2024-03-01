@@ -1,16 +1,20 @@
 pipeline {
-
-	agent {
-		dockerfile true
-	}
-	tools {
-		gradle 'GRADLE_HOME'
-	}
-	stages {
-		stage("deploy") {
-			steps {
-				sh 'cd yml && docker-compose up -d'
-			}
-		}
-	}
+    agent {
+        docker {
+            image 'jenkins-agent-with-compose'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
+    stages {
+        stage('Build Docker Images') {
+            steps {
+                sh 'docker-compose build'
+            }
+        }
+        stage('Deploy with Docker Compose') {
+            steps {
+                sh 'docker-compose up -d'
+            }
+        }
+    }
 }
