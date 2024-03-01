@@ -8,12 +8,12 @@ services:
     ports:
       - 8080:8080
       - 50000:50000
-    container_name:jenkins
+    container_name: jenkins
     volumes:
       - /home/ubuntu/jenkins_compose/jenkins_configuration:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
   backend:
-    image: backend:latest
+    image: backend
     depends_on:
       - postgres
     ports:
@@ -22,7 +22,7 @@ services:
       DB_HOST: "postgres:5432"
     restart: always
   frontend:
-    image: frontend:latest
+    image: frontend
     ports:
       - "80:3000"
     restart: always
