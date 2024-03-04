@@ -1,22 +1,20 @@
 pipeline {
-	
-	agent any
-	tools {
-		gradle 'GRADLE_HOME'
-	}
-	stages {
-		stage("build") {
-			steps {
-				echo 'building the app.'
-				sh 'cd wedd && gradle clean build'
-				sh 'cd ../front && npm install && npm run build'
-			}
-		}
-
-		stage("deploy") {
-			steps {
-				sh 'docker-compose up -d'
-			}
-		}
-	}
+    agent {
+        docker {
+            image 'jenkins-agent-with-compose'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
+    stages {
+        stage('Build Docker Images') {
+            steps {
+                sh 'docker-compose build'
+            }
+        }
+        stage('Deploy with Docker Compose') {
+            steps {
+                sh 'docker-compose up -d'
+            }
+        }
+    }
 }
