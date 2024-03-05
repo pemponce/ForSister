@@ -12,7 +12,7 @@ EXPOSE 8099
 ARG JAR_FILE=build/libs/wedd-0.0.1-SNAPSHOT.jar
 
 # добавляем джарник в образ под именем rebounder-chain-backend.jar
-ADD ${JAR_FILE} rebounder-chain-backend.jar
+ADD ${JAR_FILE} backend.jar
 
 # команда запуска джарника
-ENTRYPOINT ["java","-jar","/rebounder-chain-backend.jar"]
+ENTRYPOINT ["java","-jar","/backend.jar"]
