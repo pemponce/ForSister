@@ -19,7 +19,7 @@ export default function Contacts() {
                         <tr/>
                         <h3>Организатор (Юлия): +79046789681</h3>
                         <a href="https://wa.me/+79046789681" target="_blank" rel="noreferrer">
-                            <img
+                            <img className="svgImage"
                                 src="https://optim.tildacdn.com/tild3137-6364-4238-a161-613864323331/-/resize/43x/-/format/webp/photo.png"
                                 alt="#"/>
                         </a>
