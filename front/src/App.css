@@ -381,6 +381,23 @@ table {
         }
     }
 
+    @media (max-width: 391px) {
+        .container{
+
+            margin: 0px !important;
+        }
+        table td {
+            margin-left: 10px !important;
+            padding-right: 1px !important;
+            padding-left: 1px !important;
+        }
+        .tdContent {
+            font-size: 1.2rem;
+            padding-right: 2px;
+            padding-left: 2px;
+        }
+    }
+
     @media (max-width: 376px) {
 
         .ImgK {

@@ -34,23 +34,40 @@ export default function Recommendations() {
                             <tr>
                                 <td>
                                     <div className="circleColorPalette"
-                                         style={{backgroundColor: "rgb(172, 197, 168)"}}></div>
+                                         style={{backgroundColor: "rgb(255, 255, 255)"}}></div>
                                 </td>
                                 <td>
                                     <div className="circleColorPalette"
-                                         style={{backgroundColor: "rgb(124, 127, 132)"}}></div>
+                                         style={{backgroundColor: "rgb(248, 224, 222)"}}></div>
                                 </td>
                                 <td>
                                     <div className="circleColorPalette"
-                                         style={{backgroundColor: "rgb(216, 191, 193)"}}></div>
+                                         style={{backgroundColor: "rgb(253, 198, 178)"}}></div>
                                 </td>
                                 <td>
                                     <div className="circleColorPalette"
-                                         style={{backgroundColor: "rgb(244, 240, 226)"}}></div>
+                                         style={{backgroundColor: "rgb(255, 190, 152)"}}></div>
+                                </td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table className="tablePalette"
+                               style={{borderCollapse: "unset", borderColor: "red !important"}}>
+                            <tbody>
+                            <tr style={{alignContent: "center"}}>
+
+                                <td>
+                                    <div className="circleColorPalette"
+                                         style={{backgroundColor: "rgb(230, 159, 163)"}}></div>
                                 </td>
                                 <td>
                                     <div className="circleColorPalette"
-                                         style={{backgroundColor: "rgb(205, 186, 160)"}}></div>
+                                         style={{backgroundColor: "rgb(191, 211, 236)"}}></div>
+                                </td>
+                                <td>
+                                    <div className="circleColorPalette"
+                                         style={{backgroundColor: "rgb(0, 0, 0)"}}></div>
                                 </td>
                             </tr>
 
