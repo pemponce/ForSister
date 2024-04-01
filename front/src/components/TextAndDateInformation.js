@@ -21,6 +21,9 @@ export default function TextAndDateInformation() {
             "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
         ]
     })
+    dayjs.updateLocale('ru', {
+        weekStart: 1
+    })
 
     return (
         <Container className="containerStyle">

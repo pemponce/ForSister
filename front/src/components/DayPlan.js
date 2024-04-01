@@ -61,7 +61,7 @@ export default function DayPlan() {
                             </tr>
                             <tr>
                                 <td>
-                                    <div className="tdContent">00:00</div>
+                                    <div className="tdContent">23:00</div>
                                 </td>
                                 <td>
                                     <div className="EndOfTheEveningImage" />
