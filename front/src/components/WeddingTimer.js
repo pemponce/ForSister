@@ -51,7 +51,7 @@ export default function WeddingTimer() {
                     </div>
                     <div style={{textAlign:"center", marginTop:"30px"}}>
                         разработчик - <a style={{textDecoration:"none", color:"inherit"}} href="https://t.me/pemponceGTB" target="_blank" rel="noreferrer">
-                        @gemponceGTB
+                        @pemponceGTB
                     </a>
                     </div>
                 </Box>
