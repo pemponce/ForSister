@@ -10,9 +10,12 @@ export default function Person() {
     const [name, setName] = useState('')
     const [anotherName, setAnotherName] = useState('')
     const [guestStatus, setGuestStatus] = useState('')
+    const [formSubmitted, setFormSubmitted] = useState(false);
 
 
     const handleClick = (e) => {
+        setFormSubmitted(true);
+
         e.preventDefault()
         const person = {
             name,
@@ -20,12 +23,16 @@ export default function Person() {
             guestStatus
         }
         console.log(person)
-        fetch("http://localhost:8080/person/add", {
+
+        fetch("https://vladikarina.ru:8080/person/add", {
             method: "POST",
             headers: {"Content-type": "application/json"},
             body: JSON.stringify(person)
+
         }).then(() => {
             console.log("new Person added")
+            setName('');
+            setAnotherName('');
         })
     }
 
@@ -35,7 +42,8 @@ export default function Person() {
                 <TextField id="outlined-basic" label="Имя и Фамилия" variant="outlined" style={formStyle} fullWidth
                            value={name}
                            onChange={(e) => setName(e.target.value)}/>
-                <TextField id="outlined-basic" label="С кем вы будете? (имя, фамилия)" variant="outlined" style={formStyle} fullWidth
+                <TextField id="outlined-basic" label="С кем вы будете? (имя, фамилия)" variant="outlined"
+                           style={formStyle} fullWidth
                            value={anotherName}
                            onChange={(e) => setAnotherName(e.target.value)}/>
 
@@ -44,24 +52,26 @@ export default function Person() {
                     defaultValue="female"
                     name="radio-buttons-group"
                 >
-                    <FormControlLabel value="С удовольствием приду" control={<Radio />}
+                    <FormControlLabel value="С удовольствием приду" control={<Radio/>}
                                       label="С удовольствием приду"
                                       onChange={(e) => setGuestStatus(e.target.value)}/>
 
 
-                    <FormControlLabel value="К сожалению, не смогу присутствовать" control={<Radio />}
+                    <FormControlLabel value="К сожалению, не смогу присутствовать" control={<Radio/>}
                                       label="К сожалению, не смогу присутствовать"
                                       onChange={(e) => setGuestStatus(e.target.value)}/>
 
 
-                    <FormControlLabel value="Сообщу позже" control={<Radio />}
+                    <FormControlLabel value="Сообщу позже" control={<Radio/>}
                                       label="Сообщу позже"
                                       onChange={(e) => setGuestStatus(e.target.value)}/>
                 </RadioGroup>
 
-                <div className="container" style={{marginTop:"10px"}}>
+                <div className="container" style={{marginTop: "10px"}}>
                     <Button variant="contained" onClick={handleClick}>отправить</Button>
                 </div>
+                {formSubmitted &&
+                    <p className="textContent">Форма отправлена!</p>}
             </Box>
 
         </Paper>

@@ -26,7 +26,7 @@ export default function Users() {
 
 
     const onClick = (e) => {
-        fetch("http://localhost:8080/person/getAll")
+        fetch("https://vladikarina.ru:8080/person/getAll")
             .then(response => response.json())
             .then(data => setUsers(data))
             .catch(err => console.log(err))
