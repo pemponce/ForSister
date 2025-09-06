@@ -10,6 +10,7 @@ import PlaceInformation from "./components/PlaceInformation";
 import Recommendations from "./components/Recommendations";
 import Contacts from "./components/Contacts";
 import WeddingTimer from "./components/WeddingTimer";
+import Author from "./components/Author";
 
 function MainPage() {
 
@@ -35,12 +36,13 @@ function MainPage() {
             <div>
                 <TopPagePhotos/>
                 <TextAndDateInformation/>
-                <DayPlan/>
+                <WeddingTimer/>
                 <PlaceInformation/>
+                <DayPlan/>
                 <Recommendations/>
                 <Person/>
                 <Contacts/>
-                <WeddingTimer/>
+                <Author/>
             </div>
 
         </div>

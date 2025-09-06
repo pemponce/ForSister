@@ -11,11 +11,11 @@ export default function TopPagePhotos() {
                 <Box>
                     <div className="ImgK">
                         <div className="VladKarina">
-                            Владислав
+                            Георгий
                             <tr/>
-                            ⎯ & ⎯
+                              &
                             <tr/>
-                            Карина
+                            Рената
                         </div>
                     </div>
                 </Box>

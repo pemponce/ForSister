@@ -5,7 +5,6 @@ import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import {DateCalendar, LocalizationProvider} from "@mui/x-date-pickers";
 import {DemoContainer, DemoItem} from "@mui/x-date-pickers/internals/demo";
 import dayjs from "dayjs";
-import updateLocale from "dayjs/plugin/updateLocale";
 
 export default function TextAndDateInformation() {
 
@@ -30,9 +29,8 @@ export default function TextAndDateInformation() {
                         <tr/>
                         <tr/>
                         <h3>
-                            В нашей жизни произойдет очень важное событие - свадьба!
-                            Приглашаем вас присоединиться и разделить этот особенный день вместе. Подарите свою
-                            поддержку и добрые пожелания, а мы в свою очередь поделимся частичкой нашего счастья.
+                            В нашей жизни скоро состоится важное событие - наша свадьба!
+                            Будем рады разделить с вами этот чудесный день!
                         </h3>
                         <tr/>
                         <tr/>
@@ -41,7 +39,7 @@ export default function TextAndDateInformation() {
                                 <DemoContainer components={['DateCalendar', 'DateCalendar']}>
                                     <DemoItem>
                                         <DateCalendar style={{margin: "auto"}}
-                                                      defaultValue={dayjs('2024-06-9')}
+                                                      defaultValue={dayjs('2025-11-29')}
                                                       dayOfWeekFormatter={(day) => day}
                                                       disabled/>
                                     </DemoItem>

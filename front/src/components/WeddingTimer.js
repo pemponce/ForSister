@@ -11,7 +11,7 @@ export default function WeddingTimer() {
         const [minutes, setMinutes] = useState(0);
         const [seconds, setSeconds] = useState(0);
 
-        const deadline = "June, 9, 2024";
+        const deadline = "November, 29, 2025";
 
         const getTime = () => {
             const time = Date.parse(deadline) - Date.now();
@@ -48,11 +48,6 @@ export default function WeddingTimer() {
                     </div>
                     <div className="timerSize">
                         <Timer/>
-                    </div>
-                    <div style={{textAlign:"center", marginTop:"30px"}}>
-                        разработчик - <a style={{textDecoration:"none", color:"inherit"}} href="https://t.me/pemponceGTB" target="_blank" rel="noreferrer">
-                        @pemponceGTB
-                    </a>
                     </div>
                 </Box>
             </Paper>
