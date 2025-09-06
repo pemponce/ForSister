@@ -5,7 +5,6 @@ import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import {DateCalendar, LocalizationProvider} from "@mui/x-date-pickers";
 import {DemoContainer, DemoItem} from "@mui/x-date-pickers/internals/demo";
 import dayjs from "dayjs";
-import updateLocale from "dayjs/plugin/updateLocale";
 
 export default function TextAndDateInformation() {
 
@@ -31,7 +30,7 @@ export default function TextAndDateInformation() {
                         <tr/>
                         <h3>
                             В нашей жизни произойдет очень важное событие - свадьба!
-                            Приглашаем вас присоединиться и разделить этот особенный день вместе. Подарите свою
+                            Приглашаем вас присоединиться и разделить этот особенный день вместе с нами. Подарите нам свою
                             поддержку и добрые пожелания, а мы в свою очередь поделимся частичкой нашего счастья.
                         </h3>
                         <tr/>
