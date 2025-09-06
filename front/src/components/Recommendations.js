@@ -68,6 +68,10 @@ export default function Recommendations() {
                                 </td>
                                 <td>
                                     <div className="circleColorPalette"
+                                         style={{backgroundColor: "rgb(175, 204, 174)"}}></div>
+                                </td>
+                                <td>
+                                    <div className="circleColorPalette"
                                          style={{backgroundColor: "rgb(0, 0, 0)"}}></div>
                                 </td>
                             </tr>

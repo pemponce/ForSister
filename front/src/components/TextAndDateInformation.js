@@ -19,7 +19,7 @@ export default function TextAndDateInformation() {
             "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль",
             "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
         ],
-        weekStart: 1
+        weekStart: 0
     })
     return (
         <Container className="containerStyle">

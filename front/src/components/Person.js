@@ -20,7 +20,7 @@ export default function Person() {
             guestStatus
         }
         console.log(person)
-        fetch("http://localhost:8080/person/add", {
+        fetch("https://vladikarina.ru:8080/person/add", {
             method: "POST",
             headers: {"Content-type": "application/json"},
             body: JSON.stringify(person)
