@@ -9,11 +9,12 @@ export default function TopPagePhotos() {
         <Container className="containerStyle">
             <Paper elevation={3} className="paperStyle">
                 <Box>
-                    <div className="ImgK">
+                    <div className="Photo">
+                        <div className="ImgK"/>
                         <div className="VladKarina">
                             Георгий
                             <tr/>
-                              &
+                            &
                             <tr/>
                             Рената
                         </div>

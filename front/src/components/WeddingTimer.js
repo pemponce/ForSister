@@ -1,6 +1,6 @@
 import * as React from "react";
-import { useState, useEffect } from 'react';
-import { Container, Paper } from "@mui/material";
+import {useState, useEffect} from 'react';
+import {Container, Paper} from "@mui/material";
 import Box from "@mui/material/Box";
 
 export default function WeddingTimer() {
@@ -30,10 +30,24 @@ export default function WeddingTimer() {
 
         return (
             <div className="textContent">
-                <td className="timerComponentsSize"><div>{days} </div> <div>дней</div></td>
-                <td className="timerComponentsSize"><div>{hours}</div> <div>часов</div></td>
-                <td className="timerComponentsSize"><div>{minutes}</div> <div>минут</div></td>
-                <td className="timerComponentsSize"><div>{seconds}</div> <div>секунд</div></td>
+                <div className="timerContent">
+                    <td className="timerComponentsSize">
+                        <div>{days} </div>
+                        <div>дней</div>
+                    </td>
+                    <td className="timerComponentsSize">
+                        <div>{hours}</div>
+                        <div>часов</div>
+                    </td>
+                    <td className="timerComponentsSize">
+                        <div>{minutes}</div>
+                        <div>минут</div>
+                    </td>
+                    <td className="timerComponentsSize">
+                        <div>{seconds}</div>
+                        <div>секунд</div>
+                    </td>
+                </div>
             </div>
         );
     };

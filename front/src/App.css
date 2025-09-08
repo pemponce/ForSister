@@ -5,7 +5,7 @@
     /* colors */
     --color-app-bg: #A5A5A5;             /* серый фон страницы по требованию */
     --color-header-bg: #080b11;
-    --color-text: #6d4e1e;
+    --color-text: #000;
     --color-text-invert: #ffffff;
     --color-accent: #000;
     --color-card-bg: #ffffff;            /* белые блоки */
@@ -24,7 +24,7 @@
     --radius-card: 20px;
     --spacing-lg: 50px;
     --spacing-md: 30px;
-    --spacing-sm: 20px;
+    --spacing-sm: 2rem;
 
     /* components */
     --btn-font-w: 750;
@@ -41,6 +41,11 @@
     --img-size-lg: 100px;
     --img-size-md: 75px;
     --img-size-sm: 50px;
+
+    /* Позиции трёх строк на изображении (проценты от высоты блока) */
+    --vk-top: 35%;
+    --vk-mid: 49%;
+    --vk-bot: 63%;
 }
 
 /* =========================
@@ -84,6 +89,9 @@ body {
 }
 .bg-img--contain { background-size: contain; }
 
+/* helper для подстановки URL через CSS переменную: style="--bg:url('...')" */
+.with-bg { background-image: var(--bg); }
+
 .icon {
     width: var(--img-size-lg);
     height: var(--img-size-lg);
@@ -92,9 +100,6 @@ body {
 .icon--md { width: var(--img-size-md); height: var(--img-size-md); }
 .icon--sm { width: var(--img-size-sm); height: var(--img-size-sm); }
 .circle { border-radius: 50%; }
-
-/* helper для подстановки URL через CSS переменную: style="--bg:url('...')" */
-.with-bg { background-image: var(--bg); }
 
 /* =========================
    APP SHELL
@@ -142,14 +147,34 @@ h3 {
     text-align: center;
 }
 
+/* Контейнер с надписями поверх изображения */
 .VladKarina {
+    position: absolute;
+    font-size: 60px;
+    /* важное: этот слой над картинкой */
+    inset: 0;
     padding-top: var(--spacing-sm);
     font-weight: 400;
+    max-height: fit-content;
     font-style: normal;
-    font-size: var(--fs-hero);
     color: var(--color-text-invert);
     text-align: center;
+    filter: none;            /* не блюрим текст */
+    text-shadow: 0 2px 10px rgba(0,0,0,.45);
 }
+
+/* каждая строка располагается точечно */
+.vk-line{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: var(--fs-hero);
+    line-height: 1;
+}
+.vk-top{ top: var(--vk-top); }
+.vk-mid{ top: var(--vk-mid); }
+.vk-bot{ top: var(--vk-bot); }
 
 .textContent {
     font-weight: 150;
@@ -211,14 +236,30 @@ h3 {
 }
 .circleColorPalette.circle { border-radius: 50%; }
 
-.ImgK {
+/* >>> ГЕРОЙ С ФОТО И ТЕКСТОМ <<< */
+.Photo { position: relative; }
+
+.ImgK{
+    position: relative;
     margin: auto;
     width: 95%;
     height: 800px;
+    /* ВАЖНО: убрали blur с текста — фон и блюр в псевдоэлементе */
+    background: none;
+    overflow: hidden;
+}
+
+/* собственно изображение + размытие только на картинке */
+.ImgK::before{
+    content: "";
+    position: absolute;
+    inset: 0;
     background-image: url('../public/img/names.JPG');
     background-position: 50% 30%;
     background-repeat: no-repeat;
-    background-size: contain; /* на десктопе не увеличиваем сверх исходного */
+    background-size: contain;
+    filter: blur(2px);
+    transform: translateZ(0);
 }
 
 .glassImage { width: var(--img-size-lg); height: var(--img-size-lg); margin: auto; background-image: url('https://optim.tildacdn.com/tild3263-6338-4662-a336-656630633834/-/resize/122x/-/format/webp/photo.png'); }
@@ -250,12 +291,13 @@ h3 {
 }
 
 .timerSize {
-    width: 100%;
-    max-width: 400px;
+    width: fit-content;
+    max-width: 600px;
+    padding: 5%;
     margin: auto;
     align-content: center;
 }
-.timerComponentsSize { padding: 0 25px; }
+.timerComponentsSize { padding: 0 10px; width: fit-content; }
 
 /* ====== Location section ====== */
 /* растягиваем секцию до боковых границ карточки */
@@ -362,11 +404,14 @@ h3 {
    ========================= */
 .MuiButton-root {
     font-family: var(--font-serif) !important;
-    font-size: 1rem !important;
-    padding: 0.75rem !important;
-    width: 25% !important;
-    background-color: var(--color-accent) !important;
-    max-width: 100% !important;
+    margin: auto !important;
+    font-size: 0.8rem !important;
+    padding: 0.5rem !important;
+    align-content: center;
+    width: 45% !important;
+    outline: #080b11;
+    background-color: #373737 !important;
+    max-width: 40% !important;
     white-space: normal !important;
 }
 
@@ -419,11 +464,11 @@ h3 {
 .MuiPickersDay-root.Mui-selected::before{
     content: "";
     position: absolute;
-    top: 55%; left: 50%;
-    transform: translate(-50%,-50%);
-    width: 5rem;
-    height: 5rem;
-    background: no-repeat center/contain url("../public/img/heart_pointer.png"); /* ← без ../public */
+    top: 50%; left: 55%;
+    transform: translate(-50%,-55%);
+    width: 2.8rem;
+    height: 4.9rem;
+    background: no-repeat center/contain url("../public/img/doodle-love-heart-free-png.png"); /* ← без ../public */
 }
 .MuiPickersDay-root { font-size: 1.05rem !important; }
 .MuiPickersArrowSwitcher-root { opacity: 0 !important; display: none !important; }
@@ -444,15 +489,25 @@ h3 {
     .page{
         background: white !important;
     }
-    .VladKarina { font-size: 3.1rem; }
+    .VladKarina { font-size: 3.1rem; } /* если ВДРУГ используешь напрямую */
 
     .ImgK {
         width: 100%;
         height: auto;
         aspect-ratio: 3 / 2;
-        background-size: cover;       /* на телефоне можно «cover», чтобы занять блок */
+    }
+    .ImgK::before{
+        background-size: cover;       /* на телефоне «cover», чтобы занять блок */
         background-position: center;
     }
+
+    .timerContainer {
+        gap: 15px;
+    }
+
+    .timerUnit { min-width: 50px; }
+    .timerValue { font-size: 1.5rem; }
+    .timerLabel { font-size: 0.8rem; }
 
     .timerComponentsSize { padding: 0 20px; }
     .tdContent { padding: 0 5px; }
@@ -500,14 +555,13 @@ h3 {
         background: white !important;
     }
 
-    .ImgK { background-position: 55% 30%; }
+    .ImgK { background-position: 55% 30%; } /* не влияет, но оставим для совместимости */
     .timerSize {
         width: 250px;
         margin: auto;
         font-size: 1.2rem;
         padding: 0 2px;
     }
-    .timerComponentsSize { padding: 0 5px; }
     table td { margin-left: 10px !important; padding: 0 1px !important; }
     .tdContent { font-size: 1.2rem; padding: 0 2px; }
     .divC { font-size: 0.65rem; }
@@ -523,6 +577,7 @@ h3 {
         background-color: #fff;
     }
 }
+
 /* ===== Mobile hero / full-bleed: < 720px ===== */
 @media (max-width: 720px) {
     /* фон — белый через переменную, убираем поля */
@@ -544,29 +599,25 @@ h3 {
         max-height: 60svh !important;   /* учитывает адресную строку на мобилках */
         margin: 0;
         padding: 0;
+        overflow: hidden;
+    }
+    .ImgK::before{
         background-size: cover;          /* закрыть края без полос */
         background-position: center;
         background-repeat: no-repeat;
     }
 
-    /* Заголовок как оверлей ВНУТРИ .ImgK (рекомендуемая разметка) */
-    .ImgK .VladKarina {
+    /* Заголовок как оверлей ВНУТРИ .ImgK (наш общий стиль уже absolute) */
+    .VladKarina {
         position: absolute;
         width: inherit;
         left: 50%;
         transform: translateX(-50%);
-        color: #fff;
-        text-shadow: 0 2px 10px rgba(0,0,0,.45);
     }
 
-    .textContent {
-        margin: 2%;
-    }
-    .timerComponentsSize {
-        width: 25%;
-        padding: 0 1rem;
-        margin: auto
-    }
+    .textContent { margin: 2%; }
+    .timerContent { width: fit-content; align-content: center; }
+    .timerComponentsSize { width: 20%; font-size: 1.1rem; margin: auto }
 
     .locationPaper{ padding-inline: 0; }
     .locationGrid{ grid-template-columns: 1fr; gap: var(--spacing-sm); }
@@ -582,7 +633,6 @@ h3 {
         text-align: center;
         border-radius: 0;
     }
-
 
     /* На мобилках убираем тени и скругления у блоков */
     .paper,
