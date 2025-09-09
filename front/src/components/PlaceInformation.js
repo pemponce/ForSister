@@ -12,7 +12,7 @@ export default function PlaceInformation() {
         <Container className="containerStyle">
             <Paper elevation={3} className="paperStyle">
                 <Box>
-                    <h1>Локация</h1>
+                    <h1 style={{marginTop: "0px"}}>Локация</h1>
 
                     <img
                         src="/img/location.JPG"          // файл лежит в public/img
@@ -22,7 +22,7 @@ export default function PlaceInformation() {
 
                     <h4 className="textContent" style={{ fontSize: "2rem" }}>
                         «Троя»<br />
-                        Алания, Владикавказ, улица Барбашова, 70
+                        г.Владикавказ, улица Барбашова, 70
                     </h4>
 
                     <h3>Ресторан «Троя»</h3>

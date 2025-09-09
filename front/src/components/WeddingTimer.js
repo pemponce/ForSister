@@ -57,8 +57,10 @@ export default function WeddingTimer() {
             <Paper elevation={3} className="paperStyle">
                 <Box>
                     <div className="textContent">
-                        <h1>До нашей свадьбы</h1>
-                        <h3>осталось...</h3>
+                        <h1>Ждем вас!</h1>
+                        <img src="/img/dates.JPG" alt="#" className="TimerImg"/>
+                        <div className=""></div>
+                        <h2>До свадьбы осталось...</h2>
                     </div>
                     <div className="timerSize">
                         <Timer/>

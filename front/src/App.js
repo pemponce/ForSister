@@ -36,12 +36,12 @@ function MainPage() {
             <div>
                 <TopPagePhotos/>
                 <TextAndDateInformation/>
-                <WeddingTimer/>
                 <PlaceInformation/>
-                <DayPlan/>
-                <Recommendations/>
-                <Person/>
-                <Contacts/>
+                <WeddingTimer/>
+                {/*<DayPlan/>*/}
+                {/*<Recommendations/>*/}
+                {/*<Person/>*/}
+                {/*<Contacts/>*/}
                 <Author/>
             </div>
 

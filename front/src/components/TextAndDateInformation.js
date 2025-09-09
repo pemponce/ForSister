@@ -20,9 +20,9 @@ export default function TextAndDateInformation() {
                     <div className="textContent">
                         <h1>Дорогие гости!</h1>
                         <tr />
-                        <tr />
                         <h3>
                             В нашей жизни скоро состоится важное событие - наша свадьба!
+                            <tr/>
                             Будем рады разделить с вами этот чудесный день!
                         </h3>
                         <tr />
