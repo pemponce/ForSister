@@ -20,6 +20,7 @@ export default function PlaceInformation() {
                         className="LocationImg"
                     />
 
+                    <div className="textContent">
                     <h4 className="textContent" style={{ fontSize: "2rem" }}>
                         «Троя»<br />
                         г.Владикавказ, улица Барбашова, 70
@@ -27,7 +28,7 @@ export default function PlaceInformation() {
 
                     <h3>Ресторан «Троя»</h3>
 
-                    <Button
+                    <Button className="mapBtn"
                         variant="contained"
                         onClick={toggleMap}
                         aria-expanded={showMap}
@@ -47,6 +48,7 @@ export default function PlaceInformation() {
                             />
                         </div>
                     </Collapse>
+                    </div>
                 </Box>
             </Paper>
         </Container>

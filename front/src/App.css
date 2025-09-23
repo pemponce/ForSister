@@ -3,16 +3,17 @@
    ========================= */
 :root {
     /* colors */
-    --color-app-bg: #A5A5A5; /* серый фон страницы по требованию */
+    --color-app-bg: #FFFBF8;
     --color-header-bg: #080b11;
-    --color-text: #000;
+    --color-text: #633505;
     --color-text-invert: #ffffff;
     --color-accent: #000;
-    --color-card-bg: #ffffff; /* белые блоки */
+    --color-card-bg: #F8EBDA; /* белые блоки */
     --color-card-bg-alt: #e9dbd3;
 
     /* typography */
     --font-serif: "Cormorant Garamond", serif;
+    --font-top: "Great Vibes", cursive;
     --fs-h1: 3.5rem;
     --fs-hero: 3.8rem;
     --fs-body: 1.4rem;
@@ -25,6 +26,7 @@
     --spacing-lg: 50px;
     --spacing-md: 30px;
     --spacing-sm: 2rem;
+    --blocks-gap: 2%;
 
     /* components */
     --btn-font-w: 750;
@@ -60,6 +62,13 @@ html, body {
     overflow-x: hidden;
 }
 
+.great-vibes-regular {
+    font-family: "Great Vibes", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
 * {
     min-width: 0;
 }
@@ -69,6 +78,8 @@ body {
     background: var(--color-app-bg) fixed;
     color: var(--color-text);
 }
+
+
 
 /* =========================
    UTILITIES
@@ -196,11 +207,20 @@ body {
 /* =========================
    TYPOGRAPHY
    ========================= */
-h1, .textContent, .VladKarina, .MuiTypography-root, .MuiFormLabel-root {
+h1, .textContent, .MuiTypography-root, .MuiFormLabel-root {
+    background-color: var(--color-card-bg);
     font-family: var(--font-serif);
     overflow-wrap: anywhere;
     word-break: break-word;
     hyphens: auto;
+}
+.css-3su884-MuiPaper-root {
+    background-color: var(--color-card-bg) !important;
+}
+
+.VladKarina {
+    font-family: var(--font-top);
+    font-weight: 100;
 }
 
 h1 {
@@ -229,10 +249,10 @@ h3 {
 .VladKarina {
     position: absolute;
     font-size: 60px;
+    font-weight: 50;
     /* важное: этот слой над картинкой */
     inset: 0;
     padding-top: var(--spacing-sm);
-    font-weight: 400;
     max-height: fit-content;
     font-style: normal;
     color: var(--color-text-invert);
@@ -268,6 +288,7 @@ h3 {
     font-size: var(--fs-body);
     color: var(--color-text);
     text-align: center;
+    margin-bottom: 2%;
 }
 
 /* =========================
@@ -354,33 +375,6 @@ h3 {
     transform: translateZ(0);
 }
 
-.glassImage {
-    width: var(--img-size-lg);
-    height: var(--img-size-lg);
-    margin: auto;
-    background-image: url('https://optim.tildacdn.com/tild3263-6338-4662-a336-656630633834/-/resize/122x/-/format/webp/photo.png');
-}
-
-.weddingCeremonyImage {
-    width: var(--img-size-lg);
-    height: var(--img-size-lg);
-    margin: auto;
-    background-image: url('https://optim.tildacdn.com/tild6463-6132-4337-b432-343636646333/-/resize/122x/-/format/webp/photo.png');
-}
-
-.FestiveBanquetImage {
-    width: var(--img-size-lg);
-    height: var(--img-size-lg);
-    margin: auto;
-    background-image: url('https://optim.tildacdn.com/tild6563-3933-4865-b261-636338666231/-/resize/122x/-/format/webp/photo.png');
-}
-
-.EndOfTheEveningImage {
-    width: var(--img-size-lg);
-    height: var(--img-size-lg);
-    margin: auto;
-    background-image: url('https://optim.tildacdn.com/tild6334-6533-4432-a331-376232633336/-/resize/122x/-/format/webp/photo.png');
-}
 
 .svgImage {
     width: var(--img-size-sm);
@@ -480,19 +474,6 @@ h3 {
     letter-spacing: .06em;
 }
 
-/* Кнопка «перейти к карте» */
-.mapBtn {
-    display: inline-block;
-    background: var(--color-accent);
-    color: #fff;
-    text-decoration: none;
-    padding: .6rem 1.1rem;
-    border-radius: 4px;
-    font-weight: 700;
-    font-family: var(--font-serif);
-    transition: transform .15s ease, opacity .15s ease;
-}
-
 .mapBtn:hover {
     transform: translateY(-1px);
     opacity: .9;
@@ -501,7 +482,7 @@ h3 {
 /* Фото слева снизу, квадратная композиция как в примере */
 .LocationImg {
     grid-column: 1 / 2;
-    width: 60%;
+    width: 85%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
     margin: auto;
@@ -553,15 +534,17 @@ h3 {
 /* =========================
    MUI OVERRIDES
    ========================= */
-.MuiButton-root {
+.mapBtn {
     font-family: var(--font-serif) !important;
+    font-weight: 50;
     margin: auto !important;
+    margin-bottom: 5% !important;
     font-size: 0.8rem !important;
-    padding: 0.5rem !important;
+    padding: 0.3rem !important;
     align-content: center;
     width: 45% !important;
     outline: #080b11;
-    background-color: #373737 !important;
+    background-color: #CCBCA7 !important;
     max-width: 40% !important;
     white-space: normal !important;
 }
@@ -620,7 +603,7 @@ h3 {
 
 .css-1u23akw-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
     color: var(--color-accent) !important;
-    background-color: white !important;
+    background-color: var(--color-card-bg) !important;
 }
 
 .MuiPickersDay-root.Mui-selected::before {
@@ -812,7 +795,9 @@ h3 {
     :root {
         --color-app-bg: #ffffff;
     }
-
+    h1 {
+        margin-top: 0px !important;
+    }
     .page {
         padding: 0;
     }
@@ -822,6 +807,7 @@ h3 {
     [class*="MuiContainer-root"] {
         padding: 0 !important;
         margin: 0 !important;
+        margin-bottom: 3% !important;
     }
 
     /* Герой — на всю ширину и высоту видимой области */
