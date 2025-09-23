@@ -218,12 +218,13 @@ h1, .textContent, .MuiTypography-root, .MuiFormLabel-root {
     background-color: var(--color-card-bg) !important;
 }
 
-.VladKarina {
+.GeorgRenata {
     font-family: var(--font-top);
     font-weight: 100;
 }
 
 h1 {
+    margin-top: 0;
     font-weight: 400;
     font-style: normal;
     font-size: var(--fs-h1);
@@ -246,7 +247,7 @@ h3 {
 }
 
 /* Контейнер с надписями поверх изображения */
-.VladKarina {
+.GeorgRenata {
     position: absolute;
     font-size: 60px;
     font-weight: 50;
@@ -357,6 +358,7 @@ h3 {
     margin: auto;
     width: 95%;
     height: 800px;
+    margin-bottom: 2%;
     /* ВАЖНО: убрали blur с текста — фон и блюр в псевдоэлементе */
     background: none;
     overflow: hidden;
@@ -644,7 +646,7 @@ h3 {
         background: white !important;
     }
 
-    .VladKarina {
+    .GeorgRenata {
         font-size: 3.1rem;
     }
 
@@ -828,7 +830,7 @@ h3 {
     }
 
     /* Заголовок как оверлей ВНУТРИ .ImgK (наш общий стиль уже absolute) */
-    .VladKarina {
+    .GeorgRenata {
         position: absolute;
         width: inherit;
         left: 50%;

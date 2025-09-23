@@ -11,7 +11,7 @@ export default function TopPagePhotos() {
                 <Box>
                     <div className="Photo">
                         <div className="ImgK"/>
-                        <div className="VladKarina">
+                        <div className="GeorgRenata">
                             Георгий
                             <tr/>
                             &
