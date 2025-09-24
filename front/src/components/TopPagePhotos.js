@@ -14,7 +14,9 @@ export default function TopPagePhotos() {
                         <div className="GeorgRenata">
                             Георгий
                             <tr/>
-                            &
+                            <div style={{ fontSize: "60px" }}>
+                                &
+                            </div>
                             <tr/>
                             Рената
                         </div>

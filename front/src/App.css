@@ -218,9 +218,28 @@ h1, .textContent, .MuiTypography-root, .MuiFormLabel-root {
     background-color: var(--color-card-bg) !important;
 }
 
+/*1 2 3 4*/
+@font-face {
+    font-family: "HeatherScriptOne";
+    src: url("heatherscriptone.ttf");
+}
+@font-face {
+    font-family: "Imperial";
+    src: url("ofont.ru_Imperial.ttf");
+}
+@font-face {
+    font-family: "Venski";
+    src: url("venskisadone_medium.ttf");
+}
+@font-face {
+    font-family: "YoungLoves";
+    src: url("younglovees.ttf");
+}
+
 .GeorgRenata {
-    font-family: var(--font-top);
-    font-weight: 100;
+    /*font-family: var(--font-top);*/
+    font-family: "Venski";
+    font-weight: 200;
 }
 
 h1 {
@@ -249,7 +268,7 @@ h3 {
 /* Контейнер с надписями поверх изображения */
 .GeorgRenata {
     position: absolute;
-    font-size: 60px;
+    font-size: 90px;
     font-weight: 50;
     /* важное: этот слой над картинкой */
     inset: 0;
@@ -481,7 +500,6 @@ h3 {
     opacity: .9;
 }
 
-/* Фото слева снизу, квадратная композиция как в примере */
 .LocationImg {
     grid-column: 1 / 2;
     width: 85%;
