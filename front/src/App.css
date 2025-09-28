@@ -502,7 +502,7 @@ h3 {
 
 .LocationImg {
     grid-column: 1 / 2;
-    width: 85%;
+    width: 60%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
     margin: auto;
@@ -885,13 +885,14 @@ h3 {
     }
 
     .LocationImg {
+        width: 100% !important;
         order: 2;
         border-radius: 0;
         box-shadow: none;
     }
 
     .TimerImg {
-        width: 100%;
+        width: 100% !important;
         position: relative;
         display: block;
         order: 2;
