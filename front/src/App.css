@@ -770,6 +770,7 @@ h3 {
         background-position: 55% 30%;
     }
 
+
     /* не влияет, но оставим для совместимости */
     .timerSize {
         width: 250px;
@@ -851,6 +852,7 @@ h3 {
     .GeorgRenata {
         position: absolute;
         width: inherit;
+        padding-top: 20px !important;
         left: 50%;
         transform: translateX(-50%);
     }
