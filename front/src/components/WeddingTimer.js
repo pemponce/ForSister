@@ -28,8 +28,7 @@ export default function WeddingTimer() {
             return () => clearInterval(interval);
         }, []);
 
-        return (
-            <div className="textContent">
+        return (<div className="textContent">
                 <div className="timerContent">
                     <td className="timerComponentsSize">
                         <div>{days} </div>
@@ -48,12 +47,10 @@ export default function WeddingTimer() {
                         <div>секунд</div>
                     </td>
                 </div>
-            </div>
-        );
+            </div>);
     };
 
-    return (
-        <Container className="containerStyle">
+    return (<Container className="containerStyle">
             <Paper elevation={3} className="paperStyle">
                 <Box>
                     <div className="textContent">
@@ -70,6 +67,5 @@ export default function WeddingTimer() {
                     </div>
                 </Box>
             </Paper>
-        </Container>
-    );
+        </Container>);
 }
