@@ -58,7 +58,10 @@ export default function WeddingTimer() {
                 <Box>
                     <div className="textContent">
                         <h1>Ждем вас!</h1>
-                        <img src="/img/dates.JPG" alt="#" className="TimerImg"/>
+                    </div>
+                    <img src="/img/dates.JPG" alt="#" className="TimerImg"/>
+                    <div className="textContent">
+
                         <div className=""></div>
                         <h2>До свадьбы осталось...</h2>
                     </div>
