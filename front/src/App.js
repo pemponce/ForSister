@@ -1,96 +1,89 @@
 import './App.css';
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+
 import TopPagePhotos from "./components/TopPagePhotos.js";
-import DayPlan from "./components/DayPlan.js";
-import Person from "./components/Person.js";
 import TextAndDateInformation from "./components/TextAndDateInformation.js";
-import {Route, BrowserRouter as Router, Routes} from "react-router-dom";
 import Users from "./components/Users";
 import PlaceInformation from "./components/PlaceInformation";
-import Recommendations from "./components/Recommendations";
-import Contacts from "./components/Contacts";
 import WeddingTimer from "./components/WeddingTimer";
 import Author from "./components/Author";
 
 function MainPage() {
-
     return (
-        <html>
-        <head>
-
-            <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
-            <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet"/>
-
-            <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
-            <link
-                href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-                rel="stylesheet"/>
-
-            <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
-            <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"/>
-
-            <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
-            <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap" rel="stylesheet"/>
-        </head>
-        <body>
-
-
         <div className="page">
-
             <div>
-                <TopPagePhotos/>
-                <TextAndDateInformation/>
-                <PlaceInformation/>
-                <WeddingTimer/>
-                {/*<DayPlan/>*/}
-                {/*<Recommendations/>*/}
-                {/*<Person/>*/}
-                {/*<Contacts/>*/}
-                <Author/>
+                <div className="fade-in" style={{ transitionDelay: '.05s' }}><TopPagePhotos/></div>
+                <div className="fade-in" style={{ transitionDelay: '.15s' }}><TextAndDateInformation/></div>
+                <div className="fade-in" style={{ transitionDelay: '.25s' }}><PlaceInformation/></div>
+                <div className="fade-in" style={{ transitionDelay: '.35s' }}><WeddingTimer/></div>
+                <div className="fade-in" style={{ transitionDelay: '.45s' }}><Author/></div>
             </div>
-
         </div>
-        </body>
-        </html>
-    )
+    );
 }
 
 function UserCheckPage() {
     return (
-        <body>
-        <head>
-            <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
-            <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet"/>
-        </head>
-
         <div className="page">
-
-            <div>
+            <div className="fade-in">
                 <Users/>
             </div>
-
         </div>
-        </body>
-    )
-}
-
-
-function App() {
-    return (
-
-        <Router>
-            <Routes>
-                <Route path="/" element={<MainPage/>}/>
-                <Route path="/users" element={<UserCheckPage/>}/>
-            </Routes>
-        </Router>
-
     );
 }
 
-export default App;
+export default function App() {
+    const [introDone, setIntroDone] = useState(false);
+
+    useEffect(() => {
+        const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+        if (reduce) {
+            setIntroDone(true);
+            document.body.classList.add('ready');
+            return;
+        }
+
+        // Длительность заставки (в мс) — должно совпадать с CSS
+        const INTRO_DURATION = 2500;
+
+        const t = setTimeout(() => {
+            setIntroDone(true);
+            document.body.classList.add('ready'); // покажем контент сайта
+        }, INTRO_DURATION);
+
+        const onPageShow = (e) => {
+            if (e.persisted) {
+                clearTimeout(t);
+                setIntroDone(true);
+                document.body.classList.add('ready');
+            }
+        };
+        window.addEventListener('pageshow', onPageShow);
+        return () => {
+            clearTimeout(t);
+            window.removeEventListener('pageshow', onPageShow);
+        };
+    }, []);
+
+    return (
+        <>
+            {/* Интро-оверлей поверх всего */}
+            {!introDone && (
+                <div className="intro">
+                    <span className="intro-title">Георгий и Рената</span>
+                </div>
+            )}
+
+            {/* ВАЖНО: прячем при загрузке только ЭТОТ контейнер, не body */}
+            <div id="app-shell">
+                <Router>
+                    <Routes>
+                        <Route path="/" element={<MainPage/>}/>
+                        <Route path="/users" element={<UserCheckPage/>}/>
+                    </Routes>
+                </Router>
+            </div>
+        </>
+    );
+}

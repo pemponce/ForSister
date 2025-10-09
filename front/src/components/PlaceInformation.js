@@ -1,6 +1,6 @@
 import * as React from "react";
-import { useState } from "react";
-import { Container, Paper, Button, Collapse } from "@mui/material";
+import {useState} from "react";
+import {Container, Paper, Button, Collapse} from "@mui/material";
 import Box from "@mui/material/Box";
 
 export default function PlaceInformation() {
@@ -21,33 +21,32 @@ export default function PlaceInformation() {
                     />
 
                     <div className="textContent">
-                    <h4 className="textContent" style={{ fontSize: "2rem" }}>
-                        «Троя»<br />
-                        г.Владикавказ, улица Барбашова, 70
-                    </h4>
+                        <h3>Ресторан «Троя»</h3>
+                        <h4 className="textContent" style={{fontSize: "2rem"}}>
+                            г.Владикавказ, улица Барбашова, 70
+                        </h4>
+                        <h5 style={{fontSize: "x-large", fontWeight: "normal"}}>15:00</h5>
 
-                    <h3>Ресторан «Троя»</h3>
+                        <Button className="mapBtn"
+                                variant="contained"
+                                onClick={toggleMap}
+                                aria-expanded={showMap}
+                                aria-controls="wedding-map"
+                        >
+                            {showMap ? "Скрыть карту" : "Показать карту"}
+                        </Button>
 
-                    <Button className="mapBtn"
-                        variant="contained"
-                        onClick={toggleMap}
-                        aria-expanded={showMap}
-                        aria-controls="wedding-map"
-                    >
-                        {showMap ? "Скрыть карту" : "Показать карту"}
-                    </Button>
-
-                    <Collapse in={showMap} timeout={300} unmountOnExit>
-                        <div className="mapSize" id="wedding-map">
-                            <iframe
-                                className="mapSize"
-                                src="https://yandex.ru/map-widget/v1/-/CLQkBQ55"
-                                frameBorder="0"
-                                loading="lazy"
-                                title="Карта — Ресторан «Троя»"
-                            />
-                        </div>
-                    </Collapse>
+                        <Collapse in={showMap} timeout={300} unmountOnExit>
+                            <div className="mapSize" id="wedding-map">
+                                <iframe
+                                    className="mapSize"
+                                    src="https://yandex.ru/map-widget/v1/-/CLQkBQ55"
+                                    frameBorder="0"
+                                    loading="lazy"
+                                    title="Карта — Ресторан «Троя»"
+                                />
+                            </div>
+                        </Collapse>
                     </div>
                 </Box>
             </Paper>

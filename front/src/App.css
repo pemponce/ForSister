@@ -1,18 +1,73 @@
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+}
+
+/* Прячем ТОЛЬКО приложение, а не body — чтобы интро было видно */
+body:not(.ready) #app-shell {
+    opacity: 0;
+    transform: translateY(8px);
+}
+#app-shell {
+    transition: opacity .5s ease, transform .5s ease;
+}
+
+/* ===== ЗАСТАВКА ===== */
+.intro{
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    /* путь к файлу из public — без ../public */
+    animation: introFade 5s ease forwards;  /* 5 секунд, синхронно с JS */
+}
+.intro::before{
+    content:"";
+    position:absolute; inset:0;
+    background: rgba(248, 235, 218, 0.9);
+}
+.intro-title{
+    position: relative;
+    font-family: var(--font-top) !important;
+    font-weight: 100;
+    font-size: clamp(48px, 8vw, 40px);
+    line-height: 1;
+    letter-spacing: .02em;
+    color: #633505;
+    text-shadow: 0 6px 26px rgba(0,0,0,.35);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: titleIn 1.2s ease forwards .5s;
+}
+@keyframes introFade {
+    0%   { opacity: 1; }
+    88%  { opacity: 1; }    /* держим почти всю длительность */
+    100% { opacity: 0; visibility: hidden; }
+}
+@keyframes titleIn { to { opacity: 1; transform: none; } }
+
+/* Плавное проявление секций сайта после заставки */
+.fade-in{
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+body.ready .fade-in{ opacity: 1; transform: none; }
+
 /* =========================
-   CORE THEME VARIABLES
+   ДАЛЕЕ — твой существующий CSS
    ========================= */
+
 :root {
-    /* colors */
     --color-app-bg: #FFFBF8;
     --color-app-bgfs: #ead7c7;
     --color-header-bg: #080b11;
     --color-text: #633505;
     --color-text-invert: #ffffff;
     --color-accent: #000;
-    --color-card-bg: #F8EBDA; /* белые блоки */
+    --color-card-bg: #F8EBDA;
     --color-card-bg-alt: #e9dbd3;
 
-    /* typography */
     --font-serif: "Cormorant Garamond", serif;
     --font-top: "Great Vibes", cursive;
     --fs-h1: 3.5rem;
@@ -20,176 +75,75 @@
     --fs-body: 1.4rem;
     --fs-small: 1.15rem;
 
-    /* layout */
-    --width-paper: 65%; /* ширина контентных карточек на десктопе */
-    --radius-block: 10%; /* скругление блоков = 10% по требованию */
+    --width-paper: 65%;
+    --radius-block: 10%;
     --radius-card: 20px;
     --spacing-lg: 50px;
     --spacing-md: 30px;
     --spacing-sm: 2rem;
     --blocks-gap: 2%;
 
-    /* components */
     --btn-font-w: 750;
     --btn-radius: 50px;
     --shadow-card: 0 8px 24px rgba(0, 0, 0, .06);
 
-    /* breakpoints */
     --bp-sm: 700px;
     --bp-xs2: 435px;
     --bp-xs1: 391px;
     --bp-xxs: 376px;
 
-    /* images */
     --img-size-lg: 100px;
     --img-size-md: 75px;
     --img-size-sm: 50px;
 
-    /* Позиции трёх строк на изображении (проценты от высоты блока) */
     --vk-top: 35%;
     --vk-mid: 49%;
     --vk-bot: 63%;
 }
 
-/* =========================
-   GLOBAL / RESET
-   ========================= */
-* {
-    box-sizing: border-box;
-}
+/* GLOBAL / RESET */
+*{ box-sizing: border-box; }
+html, body{ height:100%; overflow-x:hidden; }
+*{ min-width:0; }
 
-html, body {
-    height: 100%;
-    overflow-x: hidden;
-}
+.great-vibes-regular{ font-family:"Great Vibes",cursive; font-weight:400; font-style:normal; }
 
-.great-vibes-regular {
-    font-family: "Great Vibes", cursive;
-    font-weight: 400;
-    font-style: normal;
-}
-
-
-* {
-    min-width: 0;
-}
-
-body {
+body{
     font-family: var(--font-serif);
     background: var(--color-app-bgfs) fixed;
     color: var(--color-text);
 }
 
-
-
 /* =========================
    UTILITIES
    ========================= */
-.text-center {
-    text-align: center;
-}
+.text-center { text-align: center; }
+.w-100 { width: 100%; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.round-block { border-radius: var(--radius-block); }
+.round-card { border-radius: var(--radius-card); }
 
-.w-100 {
-    width: 100%;
-}
+.card { background: var(--color-card-bg); border-radius: var(--radius-block); box-shadow: var(--shadow-card); }
+.card-alt { background: var(--color-card-bg-alt); border-radius: var(--radius-block); box-shadow: var(--shadow-card); }
 
-.mx-auto {
-    margin-left: auto;
-    margin-right: auto;
-}
+.px-sm { padding-left: var(--spacing-sm); padding-right: var(--spacing-sm); }
+.py-lg { padding-top: var(--spacing-lg); padding-bottom: var(--spacing-lg); }
 
-.round-block {
-    border-radius: var(--radius-block);
-}
+.bg-img { background-repeat: no-repeat; background-position: 50% 50%; background-size: cover; }
+.bg-img--contain { background-size: contain; }
+.with-bg { background-image: var(--bg); }
 
-.round-card {
-    border-radius: var(--radius-card);
-}
-
-.card {
-    background: var(--color-card-bg);
-    border-radius: var(--radius-block);
-    box-shadow: var(--shadow-card);
-}
-
-.card-alt {
-    background: var(--color-card-bg-alt);
-    border-radius: var(--radius-block);
-    box-shadow: var(--shadow-card);
-}
-
-.px-sm {
-    padding-left: var(--spacing-sm);
-    padding-right: var(--spacing-sm);
-}
-
-.py-lg {
-    padding-top: var(--spacing-lg);
-    padding-bottom: var(--spacing-lg);
-}
-
-.bg-img {
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: cover;
-}
-
-.bg-img--contain {
-    background-size: contain;
-}
-
-/* helper для подстановки URL через CSS переменную: style="--bg:url('...')" */
-.with-bg {
-    background-image: var(--bg);
-}
-
-.icon {
-    width: var(--img-size-lg);
-    height: var(--img-size-lg);
-    margin: auto;
-}
-
-.icon--md {
-    width: var(--img-size-md);
-    height: var(--img-size-md);
-}
-
-.icon--sm {
-    width: var(--img-size-sm);
-    height: var(--img-size-sm);
-}
-
-.circle {
-    border-radius: 50%;
-}
+.icon { width: var(--img-size-lg); height: var(--img-size-lg); margin: auto; }
+.icon--md { width: var(--img-size-md); height: var(--img-size-md); }
+.icon--sm { width: var(--img-size-sm); height: var(--img-size-sm); }
+.circle { border-radius: 50%; }
 
 /* =========================
    APP SHELL
    ========================= */
-.App {
-    text-align: center;
-}
-
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0)
-    }
-    to {
-        transform: rotate(360deg)
-    }
-}
-
+.App { text-align: center; }
+.App-logo { height: 40vmin; pointer-events: none; }
+@keyframes App-logo-spin { from { transform: rotate(0) } to { transform: rotate(360deg) } }
 .App-header {
     background-color: var(--color-header-bg);
     min-height: 100vh;
@@ -200,10 +154,7 @@ body {
     font-size: calc(10px + 2vmin);
     color: var(--color-text-invert);
 }
-
-.App-link {
-    color: #61dafb;
-}
+.App-link { color: #61dafb; }
 
 /* =========================
    TYPOGRAPHY
@@ -215,102 +166,41 @@ h1, .textContent, .MuiTypography-root, .MuiFormLabel-root {
     word-break: break-word;
     hyphens: auto;
 }
-.css-3su884-MuiPaper-root {
-    background-color: var(--color-card-bg) !important;
-}
+.css-3su884-MuiPaper-root { background-color: var(--color-card-bg) !important; }
 
-/*1 2 3 4*/
-@font-face {
-    font-family: "HeatherScriptOne";
-    src: url("heatherscriptone.ttf");
-}
-@font-face {
-    font-family: "Imperial";
-    src: url("ofont.ru_Imperial.ttf");
-}
-@font-face {
-    font-family: "Venski";
-    src: url("venskisadone_medium.ttf");
-}
-@font-face {
-    font-family: "YoungLoves";
-    src: url("younglovees.ttf");
-}
+@font-face { font-family: "HeatherScriptOne"; src: url("heatherscriptone.ttf"); }
+@font-face { font-family: "Imperial"; src: url("ofont.ru_Imperial.ttf"); }
+@font-face { font-family: "Venski"; src: url("venskisadone_medium.ttf"); }
+@font-face { font-family: "YoungLoves"; src: url("younglovees.ttf"); }
 
-.GeorgRenata {
-    /*font-family: var(--font-top);*/
-    font-family: "Venski";
-    font-weight: 200;
-}
+.GeorgRenata { font-family: "Venski"; font-weight: 200; }
 
-h1 {
-    margin-top: 0;
-    font-weight: 400;
-    font-style: normal;
-    font-size: var(--fs-h1);
-    color: var(--color-text);
-    text-align: center;
-}
-
-h2 {
-    font-weight: 100;
-    font-size: 1.7rem;
-    margin: 2% 0;
-}
-
-h3 {
-    font-weight: 200;
-    font-style: normal;
-    font-size: 2rem;
-    color: var(--color-text);
-    text-align: center;
-}
+h1 { margin-top: 0; font-weight: 400; font-style: normal; font-size: var(--fs-h1); color: var(--color-text); text-align: center; }
+h2 { font-weight: 100; font-size: 1.7rem; margin: 2% 0; }
+h3 { font-weight: 200; font-style: normal; font-size: 2rem; color: var(--color-text); text-align: center; }
 
 /* Контейнер с надписями поверх изображения */
 .GeorgRenata {
     position: absolute;
     font-size: 90px;
     font-weight: 50;
-    /* важное: этот слой над картинкой */
     inset: 0;
     padding-top: var(--spacing-sm);
     max-height: fit-content;
     font-style: normal;
     color: var(--color-text-invert);
     text-align: center;
-    filter: none; /* не блюрим текст */
+    filter: none;
     text-shadow: 0 2px 10px rgba(0, 0, 0, .45);
 }
 
 /* каждая строка располагается точечно */
-.vk-line {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    font-size: var(--fs-hero);
-    line-height: 1;
-}
+.vk-line { position: absolute; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: var(--fs-hero); line-height: 1; }
+.vk-top { top: var(--vk-top); }
+.vk-mid { top: var(--vk-mid); }
+.vk-bot { top: var(--vk-bot); }
 
-.vk-top {
-    top: var(--vk-top);
-}
-
-.vk-mid {
-    top: var(--vk-mid);
-}
-
-.vk-bot {
-    top: var(--vk-bot);
-}
-
-.textContent {
-    font-weight: 150;
-    font-size: var(--fs-body);
-    color: var(--color-text);
-    text-align: center;
-    margin-bottom: 2%;
-}
+.textContent { font-weight: 150; font-size: var(--fs-body); color: var(--color-text); text-align: center; margin-bottom: 2%; }
 
 /* =========================
    PAGE / LAYOUT
@@ -338,16 +228,11 @@ h3 {
     gap: 12px;
 }
 
-/* если где-то используешь Paper без собственного класса — зададим дефолт */
-.MuiPaper-root {
-    border-radius: var(--radius-block);
-    background-color: var(--color-card-bg);
-}
+.MuiPaper-root { border-radius: var(--radius-block); background-color: var(--color-card-bg); }
 
 /* =========================
    COMPONENTS
    ========================= */
-/* РЕКОМЕНДОВАНО: добавь className="paper" к твоим <Paper> */
 .paper, .paperForm {
     width: var(--width-paper);
     max-width: 1200px;
@@ -358,20 +243,11 @@ h3 {
     box-shadow: var(--shadow-card);
 }
 
-.circleColorPalette {
-    width: var(--img-size-md);
-    height: var(--img-size-md);
-    background-color: #ffffff;
-}
-
-.circleColorPalette.circle {
-    border-radius: 50%;
-}
+.circleColorPalette { width: var(--img-size-md); height: var(--img-size-md); background-color: #ffffff; }
+.circleColorPalette.circle { border-radius: 50%; }
 
 /* >>> ГЕРОЙ С ФОТО И ТЕКСТОМ <<< */
-.Photo {
-    position: relative;
-}
+.Photo { position: relative; }
 
 .ImgK {
     position: relative;
@@ -379,12 +255,9 @@ h3 {
     width: 95%;
     height: 800px;
     margin-bottom: 2%;
-    /* ВАЖНО: убрали blur с текста — фон и блюр в псевдоэлементе */
     background: none;
     overflow: hidden;
 }
-
-/* собственно изображение + размытие только на картинке */
 .ImgK::before {
     content: "";
     position: absolute;
@@ -394,125 +267,36 @@ h3 {
     background-repeat: no-repeat;
     background-size: contain;
     filter: blur(2px);
-    transform: translateZ(0);
+    transform: scale(1.03); /* прячем белые края */
 }
 
+.svgImage { width: var(--img-size-sm); height: var(--img-size-sm); }
 
-.svgImage {
-    width: var(--img-size-sm);
-    height: var(--img-size-sm);
-}
+.tdContent { max-width: 200px; font: inherit; font-size: var(--fs-body); line-height: 1.3rem; text-align: center; margin: 25px auto; padding: 0 45px; }
+.divC { font-size: 1.3rem; }
 
-.tdContent {
-    max-width: 200px;
-    font: inherit;
-    font-size: var(--fs-body);
-    line-height: 1.3rem;
-    text-align: center;
-    margin: 25px auto;
-    padding: 0 45px;
-}
+.mapSize { width: 100%; max-width: 600px; height: auto; aspect-ratio: 6 / 5; margin: auto; border-radius: 15px; }
 
-.divC {
-    font-size: 1.3rem;
-}
-
-.mapSize {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    aspect-ratio: 6 / 5;
-    margin: auto;
-    border-radius: 15px;
-}
-
-.timerSize {
-    width: fit-content;
-    max-width: 600px;
-    padding: 2%;
-    margin: auto;
-    align-content: center;
-}
-
-.timerComponentsSize {
-    padding: 0 10px;
-    width: fit-content;
-}
+.timerSize { width: fit-content; max-width: 600px; padding: 2%; margin: auto; align-content: center; }
+.timerComponentsSize { padding: 0 10px; width: fit-content; }
 
 /* ====== Location section ====== */
-/* растягиваем секцию до боковых границ карточки */
-.locationPaper {
-    padding-left: 0;
-    padding-right: 0;
-}
+.locationPaper { padding-left: 0; padding-right: 0; }
+.locationGrid { grid-template-columns: 1fr 1fr; gap: var(--spacing-md); }
 
-/* блок-сетка: две колонки, но шапка на всю ширину */
-.locationGrid {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-md);
-}
+.locationBlock { grid-column: 1 / -1; padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
+.locationBlock--framed { border-left: 0; border-right: 0; }
+.locationBlock--framed::before { left: var(--spacing-md); right: var(--spacing-md); }
 
-/* «ЛОКАЦИЯ» — на всю ширину до боковых рамок */
-.locationBlock {
-    grid-column: 1 / -1; /* тянем через обе колонки */
-    padding-left: var(--spacing-md); /* возвращаем внутренние поля у самой рамки */
-    padding-right: var(--spacing-md);
-}
+.locationTitle { letter-spacing: .06em; margin: 0 0 12px; }
+.locationAddress { text-align: center; font-size: 1rem; line-height: 1.3; color: #555; margin: 8px 0 18px; }
+.locationPlace { font-weight: 600; }
+.locationStreet { opacity: .9; }
 
-/* чтобы рамка визуально доходила до краёв карточки */
-.locationBlock--framed {
-    border-left: 0;
-    border-right: 0;
-}
+.locationRestaurant { margin: 0 0 18px; letter-spacing: .06em; }
+.mapBtn:hover { transform: translateY(-1px); opacity: .9; }
 
-.locationBlock--framed::before {
-    left: var(--spacing-md);
-    right: var(--spacing-md);
-}
-
-.locationTitle {
-    letter-spacing: .06em;
-    margin: 0 0 12px;
-}
-
-.locationAddress {
-    text-align: center;
-    font-size: 1rem;
-    line-height: 1.3;
-    color: #555;
-    margin: 8px 0 18px;
-}
-
-.locationPlace {
-    font-weight: 600;
-}
-
-.locationStreet {
-    opacity: .9;
-}
-
-.locationRestaurant {
-    margin: 0 0 18px;
-    letter-spacing: .06em;
-}
-
-.mapBtn:hover {
-    transform: translateY(-1px);
-    opacity: .9;
-}
-
-.LocationImg {
-    grid-column: 1 / 2;
-    width: 60%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    margin: auto;
-    display: block;
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-card);
-}
-
-.TimerImg {
+.LocationImg, .TimerImg {
     grid-column: 1 / 2;
     width: 60%;
     aspect-ratio: 4 / 3;
@@ -524,33 +308,12 @@ h3 {
 }
 
 /* Тёмная полоса на всю ширину */
-.gatherBand {
-    grid-column: 1 / -1;
-    background: #2e2e2e;
-    color: #fff;
-    text-align: center;
-    padding: 24px 12px;
-    font-family: var(--font-serif);
-    letter-spacing: .06em;
-}
-
-.gatherTime {
-    font-size: 2rem;
-    margin-top: 4px;
-}
+.gatherBand { grid-column: 1 / -1; background: #2e2e2e; color: #fff; text-align: center; padding: 24px 12px; font-family: var(--font-serif); letter-spacing: .06em; }
+.gatherTime { font-size: 2rem; margin-top: 4px; }
 
 /* Карта на всю ширину */
-.mapShell {
-    grid-column: 1 / -1;
-}
-
-.mapFrame {
-    width: 100%;
-    height: 360px;
-    border: 0;
-    border-radius: 12px;
-}
-
+.mapShell { grid-column: 1 / -1; }
+.mapFrame { width: 100%; height: 360px; border: 0; border-radius: 12px; }
 
 /* =========================
    MUI OVERRIDES
@@ -569,11 +332,7 @@ h3 {
     max-width: 40% !important;
     white-space: normal !important;
 }
-
-.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-    border-color: unset !important;
-    border-width: 1px !important;
-}
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline { border-color: unset !important; border-width: 1px !important; }
 
 .MuiInputLabel-root.Mui-focused {
     font-size: 1.2rem !important;
@@ -584,70 +343,38 @@ h3 {
     line-height: 1.5rem !important;
 }
 
-.MuiFormLabel-root {
-    font-family: var(--font-serif) !important;
-    font-weight: 650 !important;
-    font-size: var(--fs-small) !important;
-    color: var(--color-text) !important;
-}
+.MuiFormLabel-root { font-family: var(--font-serif) !important; font-weight: 650 !important; font-size: var(--fs-small) !important; color: var(--color-text) !important; }
+.MuiTypography-root { font-family: var(--font-serif) !important; font-weight: 650 !important; font-size: var(--fs-small) !important; color: var(--color-text) !important; }
 
-.MuiTypography-root {
-    font-family: var(--font-serif) !important;
-    font-weight: 650 !important;
-    font-size: var(--fs-small) !important;
-    color: var(--color-text) !important;
-}
+.MuiRadio-root.Mui-checked { color: rgb(112, 86, 66) !important; }
 
-.MuiRadio-root.Mui-checked {
-    color: rgb(112, 86, 66) !important;
-}
-
-.custom-checkbox .MuiSvgIcon-root {
-    font-size: 14px;
-    color: #000;
-}
-
-.custom-checkbox .MuiFormControlLabel-label {
-    font-size: 14px;
-    font-weight: 400;
-    color: #000;
-    font-family: var(--font-serif);
-}
-
-/*.css-1u23akw-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {*/
-/*    background-color: white !important;*/
-/*}*/
+.custom-checkbox .MuiSvgIcon-root { font-size: 14px; color: #000; }
+.custom-checkbox .MuiFormControlLabel-label { font-size: 14px; font-weight: 400; color: #000; font-family: var(--font-serif); }
 
 .css-1u23akw-MuiButtonBase-root-MuiPickersDay-root.Mui-disabled:not(.Mui-selected) {
     color: var(--color-accent) !important;
+    font-size: 90% !important;
+    font-family: var(--font-serif) !important;
 }
-
 .css-1u23akw-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
     color: var(--color-accent) !important;
+    font-size: 90% !important;
     opacity: 1 !important;
-
+    font-family: var(--font-serif) !important;
     background-color: var(--color-card-bg) !important;
 }
-
 .MuiPickersDay-root.Mui-selected::before {
     content: "";
     position: absolute;
     top: 50%;
     left: 55%;
-    transform: translate(-60%, -50%);
+    transform: translate(-60%, -45%);
     width: 2.8rem;
     height: 4.9rem;
-    background: no-repeat center/contain url("../public/img/oval.png"); /* ← без ../public */
+    background: no-repeat center/contain url("../public/img/oval.png");
 }
-
-.MuiPickersDay-root {
-    font-size: 1.05rem !important;
-}
-
-.MuiPickersArrowSwitcher-root {
-    opacity: 0 !important;
-    display: none !important;
-}
+.MuiPickersDay-root { font-size: 1.05rem !important; }
+.MuiPickersArrowSwitcher-root { opacity: 0 !important; display: none !important; }
 
 .MuiPickersCalendarHeader-labelContainer {
     font-family: var(--font-serif) !important;
@@ -663,276 +390,94 @@ h3 {
    MEDIA QUERIES
    ========================= */
 @media (max-width: var(--bp-sm)) {
-    .page {
-        background: white !important;
-    }
+    .page { background: white !important; }
+    .GeorgRenata { font-size: 3.1rem; }
 
-    .GeorgRenata {
-        font-size: 3.1rem;
-    }
+    .ImgK { width: 100%; height: auto; aspect-ratio: 3 / 2; }
+    .ImgK::before { background-size: cover; background-position: center; }
 
-    /* если ВДРУГ используешь напрямую */
-    .ImgK {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 3 / 2;
-    }
+    .timerContainer { gap: 15px; }
+    .timerUnit { min-width: 50px; }
+    .timerValue { font-size: 1.5rem; }
+    .timerLabel { font-size: 0.8rem; }
+    .timerComponentsSize { padding: 0 20px; }
+    .tdContent { padding: 0 5px; }
+    .divC { font-size: 0.7rem; }
 
-    .ImgK::before {
-        background-size: cover; /* на телефоне «cover», чтобы занять блок */
-        background-position: center;
-    }
+    .paper, .paperForm { width: 95%; max-width: 95%; margin: 10px auto; padding: 25px 12px; }
 
-    .timerContainer {
-        gap: 15px;
-    }
-
-    .timerUnit {
-        min-width: 50px;
-    }
-
-    .timerValue {
-        font-size: 1.5rem;
-    }
-
-    .timerLabel {
-        font-size: 0.8rem;
-    }
-
-    .timerComponentsSize {
-        padding: 0 20px;
-    }
-
-    .tdContent {
-        padding: 0 5px;
-    }
-
-    .divC {
-        font-size: 0.7rem;
-    }
-
-    /* РЕКОМЕНДОВАННЫЕ карточки с твоим классом */
-    .paper, .paperForm {
-        width: 95%;
-        max-width: 95%;
-        margin: 10px auto;
-        padding: 25px 12px;
-    }
-
-    /* МЯГКИЙ ФОЛБЭК для Paper без класса */
     :root .MuiPaper-root {
-        width: 95% !important;
-        max-width: 95% !important;
+        width: 95% !important; max-width: 95% !important;
         margin: 10px auto !important;
-        box-sizing: border-box;
-        flex: 1 1 auto !important;
+        box-sizing: border-box; flex: 1 1 auto !important;
     }
 
-    .MuiButton-root {
-        width: 150px !important;
-        font-size: 0.75rem !important;
-    }
+    .MuiButton-root { width: 150px !important; font-size: 0.75rem !important; }
 }
 
 @media (max-width: var(--bp-xs2)) {
-    .page {
-        background: white !important;
-    }
-
-    .container {
-        margin: 10px !important;
-    }
+    .page { background: white !important; }
+    .container { margin: 10px !important; }
 }
 
 @media (max-width: var(--bp-xs1)) {
-    .page {
-        background: white !important;
-    }
-
-    .container {
-        margin: 0 !important;
-    }
-
-    table td {
-        margin-left: 10px !important;
-        padding: 0 1px !important;
-    }
-
-    .tdContent {
-        font-size: 1.2rem;
-        padding: 0 2px;
-    }
+    .page { background: white !important; }
+    .container { margin: 0 !important; }
+    table td { margin-left: 10px !important; padding: 0 1px !important; }
+    .tdContent { font-size: 1.2rem; padding: 0 2px; }
 }
 
 @media (max-width: var(--bp-xxs)) {
-    .page {
-        background: white !important;
-    }
+    .page { background: white !important; }
+    .ImgK { background-position: 55% 30%; }
 
-    .ImgK {
-        background-position: 55% 30%;
-    }
+    .timerSize { width: 250px; margin: auto; font-size: 1.2rem; padding: 0 2px; }
+    table td { margin-left: 10px !important; padding: 0 1px !important; }
+    .tdContent { font-size: 1.2rem; padding: 0 2px; }
+    .divC { font-size: 0.65rem; }
+    .paper, .paperForm { padding: 25px 12px; }
+    h1 { width: auto; }
 
-
-    /* не влияет, но оставим для совместимости */
-    .timerSize {
-        width: 250px;
-        margin: auto;
-        font-size: 1.2rem;
-        padding: 0 2px;
-    }
-
-    table td {
-        margin-left: 10px !important;
-        padding: 0 1px !important;
-    }
-
-    .tdContent {
-        font-size: 1.2rem;
-        padding: 0 2px;
-    }
-
-    .divC {
-        font-size: 0.65rem;
-    }
-
-    .paper, .paperForm {
-        padding: 25px 12px;
-    }
-
-    h1 {
-        width: auto;
-    }
-
-    .circleColorPalette {
-        width: 45px;
-        height: 45px;
-        margin: auto;
-        border-radius: 50%;
-        background-color: #fff;
-    }
+    .circleColorPalette { width: 45px; height: 45px; margin: auto; border-radius: 50%; background-color: #fff; }
 }
 
 /* ===== Mobile hero / full-bleed: < 720px ===== */
 @media (max-width: 720px) {
-    /* фон — белый через переменную, убираем поля */
+    h1 { margin-top: 0px !important; }
+    .page { padding: 0; background-color: var(--color-app-bg) !important; }
 
-    h1 {
-        margin-top: 0px !important;
-    }
-    .page {
-        padding: 0;
-        background-color: var(--color-app-bg) !important;
+    .MuiContainer-root, [class*="MuiContainer-root"] {
+        padding: 0 !important; margin: 0 !important; margin-bottom: 3% !important;
     }
 
-    /* MUI Container: убираем внутренние отступы для настоящего full-bleed */
-    .MuiContainer-root,
-    [class*="MuiContainer-root"] {
-        padding: 0 !important;
-        margin: 0 !important;
-        margin-bottom: 3% !important;
-    }
-
-    /* Герой — на всю ширину и высоту видимой области */
     .ImgK {
-        position: relative;
-        display: block;
-        width: 100vw !important;
-        max-height: 60svh !important; /* учитывает адресную строку на мобилках */
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
+        position: relative; display: block;
+        width: 100vw !important; max-height: 60svh !important;
+        margin: 0; padding: 0; overflow: hidden;
     }
+    .ImgK::before { background-size: cover; background-position: center; background-repeat: no-repeat; }
 
-    .ImgK::before {
-        background-size: cover; /* закрыть края без полос */
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    /* Заголовок как оверлей ВНУТРИ .ImgK (наш общий стиль уже absolute) */
     .GeorgRenata {
-        position: absolute;
-        width: inherit;
-        padding-top: 20px !important;
-        left: 50%;
-        transform: translateX(-50%);
+        position: absolute; width: fit-content; padding-top: 20px !important;
+        left: 50%; transform: translateX(-50%);
     }
 
-    .textContent {
-        margin: 2%;
-    }
+    .textContent { margin: 2%; }
+    .timerContent { width: fit-content; align-content: center; }
+    .timerComponentsSize { width: 20%; font-size: 1.1rem; margin: auto }
 
-    .timerContent {
-        width: fit-content;
-        align-content: center;
-    }
+    .locationPaper { padding-inline: 0; }
+    .locationGrid { grid-template-columns: 1fr; gap: var(--spacing-sm); }
+    .locationBlock { grid-column: 1 / -1; padding-inline: var(--spacing-sm); }
 
-    .timerComponentsSize {
-        width: 20%;
-        font-size: 1.1rem;
-        margin: auto
-    }
+    .LocationImg, .TimerImg { width: 100% !important; order: 2; border-radius: 0; box-shadow: none; }
 
-    .locationPaper {
-        padding-inline: 0;
-    }
+    .gatherBand { order: 3; padding: 20px 12px; }
+    .mapShell { order: 4; }
+    .mapFrame { border-radius: 0; height: 320px; }
+    .mapBtn { width: 100%; text-align: center; border-radius: 0; }
 
-    .locationGrid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-sm);
-    }
-
-    .locationBlock {
-        grid-column: 1 / -1;
-        padding-inline: var(--spacing-sm);
-    }
-
-    .LocationImg {
-        width: 100% !important;
-        order: 2;
-        border-radius: 0;
-        box-shadow: none;
-    }
-
-    .TimerImg {
-        width: 100% !important;
-        position: relative;
-        display: block;
-        order: 2;
-        border-radius: 0;
-        box-shadow: none;
-    }
-
-    .gatherBand {
-        order: 3;
-        padding: 20px 12px;
-    }
-
-    .mapShell {
-        order: 4;
-    }
-
-    .mapFrame {
-        border-radius: 0;
-        height: 320px;
-    }
-
-    .mapBtn {
-        width: 100%;
-        text-align: center;
-        border-radius: 0;
-    }
-
-    /* На мобилках убираем тени и скругления у блоков */
-    .paper,
-    .paperForm,
-    .card,
-    .card-alt,
-    .MuiPaper-root,
-    .round-block,
-    .round-card {
-        box-shadow: none !important;
-        border-radius: 0 !important;
+    .paper, .paperForm, .card, .card-alt, .MuiPaper-root, .round-block, .round-card {
+        box-shadow: none !important; border-radius: 0 !important;
     }
 }
