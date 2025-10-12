@@ -452,7 +452,7 @@ h3 { font-weight: 200; font-style: normal; font-size: 2rem; color: var(--color-t
 
     .ImgK {
         position: relative; display: block;
-        width: 100vw !important; max-height: 60svh !important;
+        width: 100vw !important; max-height: 80svh !important;
         margin: 0; padding: 0; overflow: hidden;
     }
     .ImgK::before { background-size: cover; background-position: center; background-repeat: no-repeat; }
