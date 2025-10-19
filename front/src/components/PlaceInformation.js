@@ -15,7 +15,7 @@ export default function PlaceInformation() {
                     <h1 style={{marginTop: "0px"}}>Локация</h1>
 
                     <img
-                        src="/img/location.JPG"          // файл лежит в public/img
+                        src="/img/location2.JPG"          // файл лежит в public/img
                         alt="Ресторан «Троя»"
                         className="LocationImg"
                     />
